@@ -1,8 +1,4 @@
-import { useState } from "react";
-
-export default function Navbar() {
-  const [activeTab, setActiveTab] = useState("Prayer");
-
+export default function Navbar({ activeTab, setActiveTab }) {
   return (
     <nav className="navbar">
       <div className="navbar__content">
