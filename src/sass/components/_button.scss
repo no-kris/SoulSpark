@@ -1,0 +1,23 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/fonts" as *;
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+
+  &--auth {
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-base;
+    color: $color-white;
+    background-color: $color-emerald-600;
+
+    &:hover {
+      background-color: $color-emerald-700;
+    }
+  }
+}

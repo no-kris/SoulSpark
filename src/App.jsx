@@ -1,12 +1,11 @@
 import { useState } from "react";
 import "./css/index.css";
+import Header from "./layouts/Header";
 
 function App() {
-  return (
-    <>
-      <h1>Hello World</h1>
-    </>
-  );
+  const [user, setUser] = useState(null);
+
+  return <Header user={user} setUser={setUser} />;
 }
 
 export default App;

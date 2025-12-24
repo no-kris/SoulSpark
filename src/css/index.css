@@ -36,4 +36,61 @@ textarea {
   font-family: inherit;
 }
 
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+.button--auth {
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #ffffff;
+  background-color: #059669;
+}
+.button--auth:hover {
+  background-color: #047857;
+}
+
+.header {
+  background-color: #fefce8;
+}
+.header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+.header__brand {
+  display: flex;
+  gap: 2rem;
+}
+.header__brand--title {
+  font-size: 3rem;
+}
+.header__logo {
+  align-self: center;
+  width: 4rem;
+  height: 4rem;
+  background-color: #d97706;
+  color: #ffffff;
+  border-radius: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header__streak {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #047857;
+}
+.header__streak--text {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
 /*# sourceMappingURL=index.css.map */
