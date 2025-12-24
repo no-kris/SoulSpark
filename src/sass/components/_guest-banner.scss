@@ -1,0 +1,28 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/fonts" as *;
+
+.guest-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  background: linear-gradient(to right, rgb(245, 158, 11), rgb(217, 119, 6));
+  max-width: 80%;
+  margin: 2rem auto 0;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 2rem;
+    color: $color-white;
+  }
+
+  &__text {
+    font-size: $font-size-lg;
+    letter-spacing: 1px;
+  }
+}

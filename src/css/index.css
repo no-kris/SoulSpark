@@ -55,14 +55,48 @@ textarea {
   background-color: #047857;
 }
 .button--tab {
-  padding: 0.5rem 3rem;
-  border-radius: 2rem;
+  padding: 1rem 4rem;
+  border-radius: 1rem;
   color: #78716c;
   font-weight: 600;
+  letter-spacing: 1px;
 }
 .button--tab-active {
   background-color: #059669;
   color: #ffffff;
+}
+.button--minimal {
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+.button--minimal:hover {
+  color: #fceba8;
+}
+
+.guest-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  background: linear-gradient(to right, rgb(245, 158, 11), rgb(217, 119, 6));
+  max-width: 80%;
+  margin: 2rem auto 0;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+}
+.guest-banner__content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 2rem;
+  color: #ffffff;
+}
+.guest-banner__text {
+  font-size: 1.25rem;
+  letter-spacing: 1px;
 }
 
 .navbar {
@@ -78,10 +112,10 @@ textarea {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
   background-color: #e7e5e4;
   padding: 0.5rem;
-  border-radius: 2rem;
+  border-radius: 1rem;
   margin: 1rem auto 0;
 }
 

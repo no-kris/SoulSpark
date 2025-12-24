@@ -22,14 +22,26 @@
   }
 
   &--tab {
-    padding: 0.5rem 3rem;
-    border-radius: 2rem;
+    padding: 1rem 4rem;
+    border-radius: 1rem;
     color: $color-text-sub;
     font-weight: $font-weight-semibold;
+    letter-spacing: 1px;
   }
 
   &--tab-active {
     background-color: $color-emerald-600;
     color: $color-white;
+  }
+
+  &--minimal {
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    color: $color-white;
+    font-weight: $font-weight-semibold;
+
+    &:hover {
+      color: $color-amber-200;
+    }
   }
 }

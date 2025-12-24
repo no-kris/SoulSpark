@@ -1,18 +1,7 @@
 import { BookOpen, Sparkles, User } from "lucide-react";
-import Navbar from "./Navbar";
+import Button from "../components/Button/Button";
 
-export default function Header({ user, setUser, navbar }) {
-  const handleAuth = () => {
-    if (user) {
-      setUser(null);
-    } else {
-      setUser({
-        name: "John Doe",
-        email: "john.doe@example.com",
-      });
-    }
-  };
-
+export default function Header({ user, navbar, handleAuth }) {
   return (
     <header className="header">
       <div className="header__content">
@@ -29,10 +18,13 @@ export default function Header({ user, setUser, navbar }) {
           </div>
         </div>
 
-        <button className="button button--auth" onClick={handleAuth}>
-          <User size={14} />
-          {user ? "Logout" : "Login"}
-        </button>
+        <Button
+          text={user ? "Logout" : "Login"}
+          Icon={User}
+          IconSize={14}
+          onClick={handleAuth}
+          className="button button--auth"
+        />
       </div>
 
       {navbar}
