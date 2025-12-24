@@ -1,4 +1,5 @@
 import { BookOpen, Sparkles, User } from "lucide-react";
+import Navbar from "./Navbar";
 
 export default function Header({ user, setUser }) {
   const handleAuth = () => {
@@ -33,6 +34,8 @@ export default function Header({ user, setUser }) {
           {user ? "Logout" : "Login"}
         </button>
       </div>
+
+      <Navbar />
     </header>
   );
 }

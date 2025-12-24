@@ -20,4 +20,16 @@
       background-color: $color-emerald-700;
     }
   }
+
+  &--tab {
+    padding: 0.5rem 3rem;
+    border-radius: 2rem;
+    color: $color-text-sub;
+    font-weight: $font-weight-semibold;
+  }
+
+  &--tab-active {
+    background-color: $color-emerald-600;
+    color: $color-white;
+  }
 }
