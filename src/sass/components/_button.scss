@@ -22,7 +22,7 @@
   }
 
   &--tab {
-    padding: 1rem 4rem;
+    padding: 1rem 2rem;
     border-radius: 1rem;
     color: $color-text-sub;
     font-weight: $font-weight-semibold;
@@ -35,6 +35,7 @@
   }
 
   &--minimal {
+    gap: 0.5rem;
     padding: 0.5rem 1rem;
     border-radius: 2rem;
     color: $color-white;

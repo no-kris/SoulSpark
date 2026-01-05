@@ -3,6 +3,7 @@ import "./css/index.css";
 import Header from "./layouts/Header";
 import Navbar from "./layouts/Navbar";
 import GuestBanner from "./components/GuestBanner";
+import VerseCard from "./components/VerseCard";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -28,6 +29,7 @@ function App() {
       />
       <main className="main">
         {!user && <GuestBanner user={user} handleAuth={handleAuth} />}
+        <VerseCard />
       </main>
     </>
   );

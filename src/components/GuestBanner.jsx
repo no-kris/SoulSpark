@@ -5,21 +5,22 @@ export default function GuestBanner({ handleAuth }) {
   return (
     <div className="guest-banner">
       <div className="guest-banner__content">
-        <Archive size={42} />
         <div>
           <p className="guest-banner__text">
-            You are currently in <strong>guest mode.</strong>
+            Hey there! You are currently in <strong>guest mode.</strong>
           </p>
           <p className="guest-banner__text">
-            Please login or signup to sync your data.
+            Please
+            <Button
+              text="Sign Up / Login"
+              className="button button--minimal"
+              onClick={handleAuth}
+            />
+            to sync your data.
           </p>
         </div>
+        <Archive size={120} className="guest-banner__icon" />
       </div>
-      <Button
-        text="Sign Up"
-        className="button button--minimal"
-        onClick={handleAuth}
-      />
     </div>
   );
 }
