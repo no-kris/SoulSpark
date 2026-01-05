@@ -1,7 +1,7 @@
 import { BookOpen, Sparkles, User } from "lucide-react";
 import Button from "../components/Button/Button";
 
-export default function Header({ user, navbar, handleAuth }) {
+export default function Header({ user, navbar, onAuth }) {
   return (
     <header className="header">
       <div className="header__content">
@@ -22,7 +22,7 @@ export default function Header({ user, navbar, handleAuth }) {
           text={user ? "Logout" : "Login"}
           Icon={User}
           IconSize={14}
-          onClick={handleAuth}
+          onClick={onAuth}
           className="button button--auth"
         />
       </div>

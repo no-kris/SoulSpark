@@ -3,5 +3,8 @@
 @use "./components/button";
 @use "./components/guest-banner";
 @use "./components/daily-verse";
+@use "./components/modal";
+@use "./components/auth-modal";
+
 @use "./layout/navbar";
 @use "./layout/header";

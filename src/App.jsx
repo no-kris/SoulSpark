@@ -1,36 +1,86 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./css/index.css";
 import Header from "./layouts/Header";
 import Navbar from "./layouts/Navbar";
 import GuestBanner from "./components/GuestBanner";
 import VerseCard from "./components/VerseCard";
+import Modal from "./components/Modal/Modal";
+import AuthModal from "./features/auth/AuthModal";
+import { authService } from "./services/firebase/authServices";
 
 function App() {
   const [user, setUser] = useState(null);
   const [activeTab, setActiveTab] = useState("Prayer");
+  const [showAuth, setShowAuth] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleAuth = () => {
-    if (user) {
-      setUser(null);
-    } else {
-      setUser({
-        name: "John Doe",
-        email: "john.doe@example.com",
-      });
+  const handleSignUp = async (user) => {
+    try {
+      await authService.signUp(user.email, user.password);
+      setShowAuth(false);
+    } catch (error) {
+      setErrorMessage(error);
     }
   };
+
+  const handleLogin = async (user) => {
+    try {
+      await authService.signIn(user.email, user.password);
+      setShowAuth(false);
+    } catch (error) {
+      setErrorMessage(error);
+    }
+  };
+
+  const handleResetPassword = async (email) => {
+    try {
+      await authService.resetPassword(email);
+    } catch (error) {
+      setErrorMessage(error);
+    }
+  };
+
+  useEffect(() => {
+    const unsubscribe = authService.subscribeToAuthChnages(
+      async (currentUser) => {
+        if (currentUser) {
+          setUser(currentUser);
+        } else {
+          setUser(null);
+        }
+      }
+    );
+    return () => unsubscribe();
+  }, []);
 
   return (
     <>
       <Header
         user={user}
-        handleAuth={handleAuth}
+        onAuth={() => setShowAuth(true)}
         navbar={<Navbar activeTab={activeTab} setActiveTab={setActiveTab} />}
       />
       <main className="main">
-        {!user && <GuestBanner user={user} handleAuth={handleAuth} />}
+        {!user && <GuestBanner user={user} onAuth={() => setShowAuth(true)} />}
         <VerseCard />
       </main>
+      <Modal
+        isOpen={showAuth}
+        onClose={() => setShowAuth(false)}
+        children={
+          <>
+            {errorMessage && (
+              <div className="auth-modal__error">{errorMessage}</div>
+            )}
+            <AuthModal
+              onClose={() => setShowAuth(false)}
+              onSignUp={handleSignUp}
+              onLogin={handleLogin}
+              onResetPassword={handleResetPassword}
+            />
+          </>
+        }
+      />
     </>
   );
 }

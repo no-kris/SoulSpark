@@ -15,10 +15,6 @@
     font-weight: $font-weight-base;
     color: $color-white;
     background-color: $color-emerald-600;
-
-    &:hover {
-      background-color: $color-emerald-700;
-    }
   }
 
   &--tab {
@@ -40,9 +36,22 @@
     border-radius: 2rem;
     color: $color-white;
     font-weight: $font-weight-semibold;
+  }
 
-    &:hover {
-      color: $color-amber-200;
-    }
+  &--text {
+    color: $color-amber-700;
+    font-size: 0.9rem;
+  }
+
+  &--close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+    padding: 0.5rem;
+    border-radius: 50%;
+    color: $color-stone-500;
+    transition: all 0.2s;
+    background-color: transparent;
   }
 }

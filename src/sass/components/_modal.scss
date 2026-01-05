@@ -1,0 +1,30 @@
+@use "../abstracts/animations" as *;
+@use "../abstracts/variables" as *;
+
+.modal {
+  position: fixed;
+  text-align: center;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.4);
+  animation: fadeIn 0.3s ease-out;
+
+  &__content {
+    background-color: white;
+    width: 100%;
+    max-width: 32rem;
+    border-radius: 2rem;
+    position: relative;
+    overflow: hidden;
+    animation: zoomIn 0.35s ease-out;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    border-top: 8px solid $color-emerald-600;
+    border-bottom: 6px solid $color-emerald-600;
+  }
+}
