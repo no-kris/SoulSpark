@@ -7,6 +7,7 @@ import VerseCard from "./components/VerseCard";
 import Modal from "./components/Modal/Modal";
 import AuthModal from "./features/auth/AuthModal";
 import { authService } from "./services/firebase/authServices";
+import { TRUE } from "sass";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -40,6 +41,14 @@ function App() {
     }
   };
 
+  const handleLogout = async () => {
+    try {
+      await authService.logout();
+    } catch (error) {
+      setErrorMessage(error);
+    }
+  };
+
   useEffect(() => {
     const unsubscribe = authService.subscribeToAuthChnages(
       async (currentUser) => {
@@ -57,7 +66,9 @@ function App() {
     <>
       <Header
         user={user}
-        onAuth={() => setShowAuth(true)}
+        onAuth={() => {
+          user ? handleLogout() : setShowAuth(true);
+        }}
         navbar={<Navbar activeTab={activeTab} setActiveTab={setActiveTab} />}
       />
       <main className="main">
