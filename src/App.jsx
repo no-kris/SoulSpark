@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { authService } from "./services/firebase/authServices";
 import "./css/index.css";
 import Header from "./layouts/Header";
 import Navbar from "./layouts/Navbar";
@@ -6,8 +7,10 @@ import GuestBanner from "./components/GuestBanner";
 import VerseCard from "./components/VerseCard";
 import Modal from "./components/Modal/Modal";
 import AuthModal from "./features/auth/AuthModal";
-import { authService } from "./services/firebase/authServices";
-import { TRUE } from "sass";
+
+import PrayerTab from "./components/PrayerTab";
+import GratitudeTab from "./components/GratitudeTab";
+import SpiritualTab from "./components/SpiritualTab";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -74,6 +77,9 @@ function App() {
       <main className="main">
         {!user && <GuestBanner user={user} onAuth={() => setShowAuth(true)} />}
         <VerseCard />
+        {activeTab === "prayer" && <PrayerTab />}
+        {activeTab === "gratitude" && <GratitudeTab />}
+        {activeTab === "spiritual" && <SpiritualTab />}
       </main>
       <Modal
         isOpen={showAuth}

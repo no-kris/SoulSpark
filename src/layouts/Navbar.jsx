@@ -2,7 +2,7 @@ export default function Navbar({ activeTab, setActiveTab }) {
   return (
     <nav className="navbar">
       <div className="navbar__content">
-        {["Prayer", "Gratitude", "Spiritual"].map((tab) => (
+        {["prayer", "gratitude", "spiritual"].map((tab) => (
           <button
             key={tab}
             className={`button button--tab ${
