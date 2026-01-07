@@ -5,6 +5,22 @@ import Button from "./Button/Button";
 export default function PrayerTab() {
   const [prayerTitle, setPrayerTitle] = useState("");
   const [prayerDetails, setPrayerDetails] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleAddPrayer = (e) => {
+    e.preventDefault();
+    if (!prayerTitle) {
+      setErrorMessage("Prayer title is needed.");
+      return;
+    }
+    if (!prayerDetails) {
+      setErrorMessage("Prayer details are needed.");
+      return;
+    }
+    setErrorMessage("");
+    console.log("No errors encountered.");
+    // Here I will write some code to add/check db insertion
+  };
   return (
     <div style={{ maxWidth: "60rem", margin: "0 auto" }}>
       <div className="prayer-card">
@@ -14,6 +30,9 @@ export default function PrayerTab() {
           </div>
           <h3 className="prayer-card__title">New Prayer</h3>
         </div>
+        {errorMessage && (
+          <div className="auth-modal__error">{errorMessage}</div>
+        )}
         <input
           type="text"
           value={prayerTitle}
@@ -28,10 +47,7 @@ export default function PrayerTab() {
           className="prayer-card__textarea"
         ></textarea>
         <Button
-          onClick={(e) => {
-            e.preventDefault();
-            console.log("Button clicked");
-          }}
+          onClick={handleAddPrayer}
           className="button--submit"
           Icon={ChevronRight}
           IconSize={16}

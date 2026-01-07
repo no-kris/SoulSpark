@@ -55,6 +55,15 @@
     background-color: transparent;
   }
 
+  &--save {
+    padding: 1.5rem;
+    font-size: $font-size-2xl;
+    border-radius: 1.5rem;
+    background: white;
+    color: $color-emerald-700;
+    border: 1px solid $color-emerald-700;
+  }
+
   &--submit {
     display: flex;
     flex-direction: row-reverse;
