@@ -85,6 +85,18 @@ textarea {
   transition: all 0.2s;
   background-color: transparent;
 }
+.button--submit {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  gap: 0.5rem;
+  font-size: 2rem;
+  border-radius: 1.5rem;
+  background: #292524;
+  color: white;
+}
 
 .guest-banner {
   display: flex;
@@ -233,7 +245,7 @@ textarea {
 }
 .auth-modal__title {
   font-family: "Playfair Display", serif;
-  font-size: 2.25rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #292524;
   margin-bottom: 0.25rem;
@@ -251,7 +263,7 @@ textarea {
   color: #b91c1c;
   padding: 0.75rem 1rem;
   border-radius: 0.75rem;
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 600;
   text-align: center;
   border: 1px solid #fecaca;
@@ -313,6 +325,61 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.prayer-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 90%;
+  margin: 2rem auto 0;
+  background: white;
+  padding: 2rem;
+  border: 1px solid #e7e5e4;
+  border-radius: 2rem;
+  position: relative;
+}
+.prayer-card__header {
+  display: flex;
+  gap: 1rem;
+  font-size: 2rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.prayer-card__icon {
+  background: #fceba8;
+  color: #d97706;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+}
+.prayer-card__input {
+  min-height: 4rem;
+  border: 1px solid #e7e5e4;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  transition: all 0.2s;
+}
+.prayer-card__textarea {
+  min-height: 8rem;
+  border: 1px solid #e7e5e4;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  transition: all 0.2s;
+  resize: none;
+}
+.prayer-card__input:focus, .prayer-card__textarea:focus {
+  background-color: white;
+  border-color: #f59e0b;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+  outline: none;
+}
+.prayer-card__input::placeholder, .prayer-card__textarea::placeholder {
+  font-size: 1.5rem;
 }
 
 .navbar {

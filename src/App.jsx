@@ -7,14 +7,13 @@ import GuestBanner from "./components/GuestBanner";
 import VerseCard from "./components/VerseCard";
 import Modal from "./components/Modal/Modal";
 import AuthModal from "./features/auth/AuthModal";
-
 import PrayerTab from "./components/PrayerTab";
 import GratitudeTab from "./components/GratitudeTab";
 import SpiritualTab from "./components/SpiritualTab";
 
 function App() {
   const [user, setUser] = useState(null);
-  const [activeTab, setActiveTab] = useState("Prayer");
+  const [activeTab, setActiveTab] = useState("prayer");
   const [showAuth, setShowAuth] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
