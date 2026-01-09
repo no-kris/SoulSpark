@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { authService } from "./services/firebase/authServices";
 import "./css/index.css";
+import "react-toastify/dist/ReactToastify.css";
 import Header from "./layouts/Header";
 import Navbar from "./layouts/Navbar";
 import GuestBanner from "./components/GuestBanner";
@@ -10,6 +11,7 @@ import AuthModal from "./features/auth/AuthModal";
 import PrayerTab from "./components/PrayerTab";
 import GratitudeTab from "./components/GratitudeTab";
 import SpiritualTab from "./components/SpiritualTab";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -76,7 +78,8 @@ function App() {
       <main className="main">
         {!user && <GuestBanner user={user} onAuth={() => setShowAuth(true)} />}
         <VerseCard />
-        {activeTab === "prayer" && <PrayerTab />}
+        <ToastContainer />
+        {activeTab === "prayer" && <PrayerTab user={user} />}
         {activeTab === "gratitude" && <GratitudeTab />}
         {activeTab === "spiritual" && <SpiritualTab />}
       </main>

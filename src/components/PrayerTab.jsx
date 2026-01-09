@@ -1,14 +1,20 @@
 import { ChevronRight, Plus } from "lucide-react";
 import { useState } from "react";
 import Button from "./Button/Button";
+import { firestoreService } from "../services/firebase/firestoreService";
+import { toast } from "react-toastify";
 
-export default function PrayerTab() {
+export default function PrayerTab({ user }) {
   const [prayerTitle, setPrayerTitle] = useState("");
   const [prayerDetails, setPrayerDetails] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleAddPrayer = (e) => {
+  const notify = (msg) => toast(msg);
+
+  const handleAddPrayer = async (e) => {
     e.preventDefault();
+    if (!user || user.isAnonymous)
+      return notify("Please sign up to add prayers.");
     if (!prayerTitle) {
       setErrorMessage("Prayer title is needed.");
       return;
@@ -18,9 +24,19 @@ export default function PrayerTab() {
       return;
     }
     setErrorMessage("");
-    console.log("No errors encountered.");
-    // Here I will write some code to add/check db insertion
+    try {
+      await firestoreService.addPrayerEntry(user.uid, {
+        title: prayerTitle,
+        details: prayerDetails,
+      });
+      setPrayerTitle("");
+      setPrayerDetails("");
+      notify("Prayer Added!");
+    } catch (error) {
+      setErrorMessage(`Error adding prayer ${error}`);
+    }
   };
+
   return (
     <div style={{ maxWidth: "60rem", margin: "0 auto" }}>
       <div className="prayer-card">
