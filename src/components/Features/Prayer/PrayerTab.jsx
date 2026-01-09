@@ -1,7 +1,7 @@
 import { ChevronRight, Plus } from "lucide-react";
 import { useState } from "react";
-import Button from "./Button/Button";
-import { firestoreService } from "../services/firebase/firestoreService";
+import Button from "../../Button/Button";
+import { firestoreService } from "../../../services/firebase/firestoreService";
 import { toast } from "react-toastify";
 
 export default function PrayerTab({ user }) {

@@ -4,13 +4,13 @@ import "./css/index.css";
 import "react-toastify/dist/ReactToastify.css";
 import Header from "./layouts/Header";
 import Navbar from "./layouts/Navbar";
-import GuestBanner from "./components/GuestBanner";
-import VerseCard from "./components/VerseCard";
+import GuestBanner from "./components/Misc/GuestBanner";
+import VerseCard from "./components/Misc/VerseCard";
 import Modal from "./components/Modal/Modal";
 import AuthModal from "./features/auth/AuthModal";
-import PrayerTab from "./components/PrayerTab";
-import GratitudeTab from "./components/GratitudeTab";
-import SpiritualTab from "./components/SpiritualTab";
+import PrayerTab from "./components/Features/Prayer/PrayerTab";
+import GratitudeTab from "./components/Features/Gratitude/GratitudeTab";
+import SpiritualTab from "./components/Features/Spiritual/SpiritualTab";
 import { ToastContainer } from "react-toastify";
 
 function App() {

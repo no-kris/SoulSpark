@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import VERSES from "../constants/verses";
+import VERSES from "../../constants/verses";
 import { BookOpen } from "lucide-react";
 
 export default function VerseCard() {

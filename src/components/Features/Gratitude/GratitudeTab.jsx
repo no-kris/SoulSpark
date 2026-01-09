@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "./Button/Button";
+import Button from "../../Button/Button";
 import { Droplet } from "lucide-react";
 
 export default function GratitudeTab() {

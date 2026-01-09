@@ -1,5 +1,5 @@
 import { Archive } from "lucide-react";
-import Button from "./Button/Button";
+import Button from "../Button/Button";
 
 export default function GuestBanner({ handleAuth }) {
   return (
