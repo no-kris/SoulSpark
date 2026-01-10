@@ -3,6 +3,7 @@ import { useState } from "react";
 import Button from "../../Button/Button";
 import { firestoreService } from "../../../services/firebase/firestoreService";
 import { toast } from "react-toastify";
+import PrayerHistory from "./PrayerHistory";
 
 export default function PrayerTab({ user }) {
   const [prayerTitle, setPrayerTitle] = useState("");
@@ -70,6 +71,7 @@ export default function PrayerTab({ user }) {
           text="Add Prayer"
         />
       </div>
+      <PrayerHistory user={user} />
     </div>
   );
 }
