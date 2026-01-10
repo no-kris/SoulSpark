@@ -39,7 +39,7 @@ export default function PrayerTab({ user }) {
   };
 
   return (
-    <div style={{ maxWidth: "60rem", margin: "0 auto" }}>
+    <div>
       <div className="prayer-card">
         <div className="prayer-card__header">
           <div className="prayer-card__icon">

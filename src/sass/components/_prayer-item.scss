@@ -1,0 +1,64 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/fonts" as *;
+
+.prayer-history {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.prayer-item {
+  background-color: white;
+  border: 1px solid $color-stone-200;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 2px 4px -1px rgba(0, 0, 0, 0.03);
+
+  &:active {
+    background-color: $color-stone-50;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+
+    &--text {
+      font-size: $font-size-xl;
+      font-weight: $font-weight-bold;
+      color: $color-stone-800;
+      margin: 0;
+    }
+  }
+
+  &__details {
+    color: $color-text-sub;
+    line-height: 1.6;
+    margin: 0;
+    font-size: $font-size-base;
+    white-space: pre-wrap;
+  }
+}
+
+.status-badge {
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  display: inline-block;
+}
+
+.status-open {
+  background-color: $color-amber-100;
+  color: $color-amber-700;
+}
+
+.status-answered {
+  background-color: $color-emerald-100;
+  color: $color-emerald-700;
+}

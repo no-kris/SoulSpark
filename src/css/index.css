@@ -15,6 +15,10 @@ body {
   background-color: #fefce8;
 }
 
+.main {
+  padding-bottom: 5rem;
+}
+
 h1,
 h2,
 h3,
@@ -486,8 +490,7 @@ textarea {
   justify-content: space-around;
   align-items: center;
   gap: 1rem;
-  padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
+  padding-bottom: 3rem;
   margin-top: 2rem;
 }
 
@@ -512,6 +515,63 @@ textarea {
 .filter-option.inactive {
   background-color: #f5f5f4;
   color: #78716c;
+}
+
+.prayer-history {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.prayer-item {
+  background-color: white;
+  border: 1px solid #e7e5e4;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+.prayer-item:active {
+  background-color: #fafaf9;
+}
+.prayer-item__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+.prayer-item__header--text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #292524;
+  margin: 0;
+}
+.prayer-item__details {
+  color: #78716c;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 1rem;
+  white-space: pre-wrap;
+}
+
+.status-badge {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  display: inline-block;
+}
+
+.status-open {
+  background-color: #fef3c7;
+  color: #b45309;
+}
+
+.status-answered {
+  background-color: #d1fae5;
+  color: #047857;
 }
 
 .navbar {
