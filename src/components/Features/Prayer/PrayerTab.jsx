@@ -1,11 +1,11 @@
 import PrayerCard from "./PrayerCard";
 import PrayerHistory from "./PrayerHistory";
 
-export default function PrayerTab({ user }) {
+export default function PrayerTab() {
   return (
     <div>
-      <PrayerCard user={user} />
-      <PrayerHistory user={user} />
+      <PrayerCard />
+      <PrayerHistory />
     </div>
   );
 }

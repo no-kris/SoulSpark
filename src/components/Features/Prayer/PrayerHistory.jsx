@@ -1,14 +1,19 @@
 import { useEffect, useState } from "react";
+import { useAuth } from "../../../context/AuthContext";
 import PrayerFilterBar from "./PrayerFilterBar";
 import { firestoreService } from "../../../services/firebase/firestoreService";
 import PrayerList from "./PrayerList";
 
-export default function PrayerHistory({ user }) {
+export default function PrayerHistory() {
+  const { user } = useAuth();
   const [prayers, setPrayers] = useState([]);
   const [prayerFilter, setPrayerFilter] = useState("open"); // open | answered | archived
 
   useEffect(() => {
-    if (!user) return;
+    if (!user) {
+      setPrayers([]);
+      return;
+    }
 
     const unsubscribe = firestoreService.subscribeToPrayers(
       user.uid,

@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useAuth } from "../../../context/AuthContext";
 import { firestoreService } from "../../../services/firebase/firestoreService";
 import { toast } from "react-toastify";
 import { ChevronRight, Plus } from "lucide-react";
 import Button from "../../Button/Button";
 
-export default function PrayerCard({ user }) {
+export default function PrayerCard() {
+  const { user } = useAuth();
   const [prayerTitle, setPrayerTitle] = useState("");
   const [prayerDetails, setPrayerDetails] = useState("");
   const [errorMessage, setErrorMessage] = useState("");

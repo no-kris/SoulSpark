@@ -1,7 +1,7 @@
 import { Archive } from "lucide-react";
 import Button from "../Button/Button";
 
-export default function GuestBanner({ handleAuth }) {
+export default function GuestBanner({ onAuth }) {
   return (
     <div className="guest-banner">
       <div className="guest-banner__content">
@@ -14,7 +14,7 @@ export default function GuestBanner({ handleAuth }) {
             <Button
               text="Sign Up / Login"
               className="button button--minimal"
-              onClick={handleAuth}
+              onClick={onAuth}
             />
             to sync your data.
           </p>

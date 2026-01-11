@@ -1,14 +1,17 @@
 import { useState } from "react";
+import { useAuth } from "../../../context/AuthContext";
+import { firestoreService } from "../../../services/firebase/firestoreService";
 import Button from "../../Button/Button";
 
 export default function PrayerAnsweredModal({ prayer, onClose }) {
+  const { user } = useAuth();
   const [answerDate, setAnswerDate] = useState(
     new Date().toISOString().split("T")[0]
   );
   const [answerNote, setAnswerNote] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleTestimonial = (e) => {
+  const handleTestimonial = async (e) => {
     e.preventDefault();
     if (!answerDate) {
       setErrorMessage("Please enter a valid date.");
@@ -18,7 +21,19 @@ export default function PrayerAnsweredModal({ prayer, onClose }) {
       setErrorMessage("Enter your testimony description.");
       return;
     }
-    setErrorMessage("");
+
+    try {
+      setErrorMessage("");
+      await firestoreService.updatePrayer(user.uid, prayer.id, {
+        status: "answered",
+        answerDate: answerDate,
+        answerNote: answerNote,
+      });
+      onClose();
+    } catch (error) {
+      console.error("Error updating prayer testimony:", error);
+      setErrorMessage("Something went wrong. Please try again.");
+    }
   };
 
   return (

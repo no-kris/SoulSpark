@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { authService } from "./services/firebase/authServices";
+import { useAuth } from "./context/AuthContext";
 import "./css/index.css";
 import "react-toastify/dist/ReactToastify.css";
 import Header from "./layouts/Header";
@@ -14,7 +15,7 @@ import SpiritualTab from "./components/Features/Spiritual/SpiritualTab";
 import { ToastContainer } from "react-toastify";
 
 function App() {
-  const [user, setUser] = useState(null);
+  const { user } = useAuth();
   const [activeTab, setActiveTab] = useState("prayer");
   const [showAuth, setShowAuth] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -53,19 +54,6 @@ function App() {
     }
   };
 
-  useEffect(() => {
-    const unsubscribe = authService.subscribeToAuthChnages(
-      async (currentUser) => {
-        if (currentUser) {
-          setUser(currentUser);
-        } else {
-          setUser(null);
-        }
-      }
-    );
-    return () => unsubscribe();
-  }, []);
-
   return (
     <>
       <Header
@@ -79,7 +67,7 @@ function App() {
         {!user && <GuestBanner user={user} onAuth={() => setShowAuth(true)} />}
         <VerseCard />
         <ToastContainer />
-        {activeTab === "prayer" && <PrayerTab user={user} />}
+        {activeTab === "prayer" && <PrayerTab />}
         {activeTab === "gratitude" && <GratitudeTab />}
         {activeTab === "spiritual" && <SpiritualTab />}
       </main>
