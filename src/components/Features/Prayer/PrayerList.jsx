@@ -1,3 +1,5 @@
+import PrayerActions from "./PrayerActions";
+
 export default function PrayerList({ prayers, prayerFilter }) {
   return prayers
     .filter((p) => p.status === prayerFilter)
@@ -14,6 +16,7 @@ export default function PrayerList({ prayers, prayerFilter }) {
           </span>
         </div>
         <p className="prayer-item__details">{prayer.details}</p>
+        <PrayerActions prayer={prayer} />
       </div>
     ));
 }

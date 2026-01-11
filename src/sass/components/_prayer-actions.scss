@@ -1,0 +1,26 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/fonts" as *;
+
+.prayer-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+  padding-top: 1rem;
+
+  &__link {
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+  }
+}
+
+.link-primary {
+  background-color: $color-amber-100;
+  color: $color-amber-700;
+}
+
+.link-secondary {
+  background-color: $color-stone-100;
+  color: $color-stone-500;
+}

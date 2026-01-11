@@ -15,11 +15,11 @@ export default function PrayerCard({ user }) {
     e.preventDefault();
     if (!user || user.isAnonymous)
       return notify("Please sign up to add prayers.");
-    if (!prayerTitle) {
+    if (!prayerTitle.trim()) {
       setErrorMessage("Prayer title is needed.");
       return;
     }
-    if (!prayerDetails) {
+    if (!prayerDetails.trim()) {
       setErrorMessage("Prayer details are needed.");
       return;
     }

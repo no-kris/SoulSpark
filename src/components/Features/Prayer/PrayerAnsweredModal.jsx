@@ -1,0 +1,62 @@
+import { useState } from "react";
+import Button from "../../Button/Button";
+
+export default function PrayerAnsweredModal({ prayer, onClose }) {
+  const [answerDate, setAnswerDate] = useState(
+    new Date().toISOString().split("T")[0]
+  );
+  const [answerNote, setAnswerNote] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleTestimonial = (e) => {
+    e.preventDefault();
+    if (!answerDate) {
+      setErrorMessage("Please enter a valid date.");
+      return;
+    }
+    if (!answerNote.trim()) {
+      setErrorMessage("Enter your testimony description.");
+      return;
+    }
+    setErrorMessage("");
+  };
+
+  return (
+    <div className="testimony-form">
+      <h3 className="testimony-form__title">Testimony Time!</h3>
+      <p className="testimony-form__subtitle">
+        How did God answer this prayer?
+      </p>
+
+      <div className="testimony-form__prayer-title">{prayer.title}</div>
+      {errorMessage && <div className="auth-modal__error">{errorMessage}</div>}
+      <input
+        type="date"
+        value={answerDate}
+        onChange={(e) => setAnswerDate(e.target.value)}
+        onClick={(e) => e.target.showPicker && e.target.showPicker()}
+        className="testimony-form__input--date"
+      />
+      <textarea
+        placeholder="Write your testimony here..."
+        rows="4"
+        value={answerNote}
+        onChange={(e) => setAnswerNote(e.target.value)}
+        className="testimony-form__input--text"
+      ></textarea>
+
+      <div className="testimony-form__actions">
+        <Button
+          text="Close"
+          onClick={() => onClose()}
+          className="button testimony-form__button--cancel"
+        />
+        <Button
+          text="Confirm"
+          onClick={handleTestimonial}
+          className="button testimony-form__button--confirm"
+        />
+      </div>
+    </div>
+  );
+}

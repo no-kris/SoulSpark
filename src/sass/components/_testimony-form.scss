@@ -1,0 +1,83 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/fonts" as *;
+
+.testimony-form {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: left;
+
+  &__title {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $color-emerald-700;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  &__subtitle {
+    font-size: $font-size-lg;
+    color: $color-stone-500;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  &__prayer-title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    color: $color-emerald-600;
+    background-color: $color-emerald-100;
+    padding: 1rem;
+    border-radius: 1rem;
+    border-left: 4px solid $color-emerald-500;
+  }
+
+  &__input {
+    &--date,
+    &--text {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid $color-stone-200;
+      border-radius: 1rem;
+      font-size: $font-size-base;
+      transition: all 0.2s;
+
+      &:focus {
+        outline: none;
+        border-color: $color-emerald-500;
+        box-shadow: 0 0 0 3px rgba($color-emerald-500, 0.1);
+      }
+    }
+
+    &--text {
+      resize: none;
+      min-height: 12rem;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  &__button {
+    &--cancel {
+      background-color: $color-stone-100;
+      color: $color-stone-500;
+      padding: 0.75rem 1.5rem;
+      border-radius: 1rem;
+      font-weight: $font-weight-semibold;
+    }
+
+    &--confirm {
+      background-color: $color-emerald-600;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 1rem;
+      font-weight: $font-weight-semibold;
+    }
+  }
+}
