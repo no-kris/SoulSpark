@@ -6,9 +6,6 @@ export default function Header({ user, navbar, onAuth }) {
     <header className="header">
       <div className="header__content">
         <div className="header__brand">
-          <div className="header__logo">
-            <BookOpen size={32} />
-          </div>
           <div>
             <h1 className="header__brand--title">Soul Spark</h1>
             <div className="header__streak">

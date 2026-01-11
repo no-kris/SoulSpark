@@ -3,6 +3,9 @@
 
 .header {
   background-color: $color-bg-start;
+  position: sticky;
+  top: 0;
+  z-index: 999999;
 
   &__content {
     display: flex;
@@ -18,18 +21,6 @@
     &--title {
       font-size: $font-size-3xl;
     }
-  }
-
-  &__logo {
-    align-self: center;
-    width: 4rem;
-    height: 4rem;
-    background-color: $color-amber-600;
-    color: $color-white;
-    border-radius: 20%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
   &__streak {

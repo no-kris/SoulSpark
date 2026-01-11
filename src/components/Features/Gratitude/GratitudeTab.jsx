@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Button from "../../Button/Button";
-import { Droplet } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 
 export default function GratitudeTab() {
   const [gratitudeInputs, setGratitudeInputs] = useState(["", "", ""]);
@@ -12,7 +12,7 @@ export default function GratitudeTab() {
     e.preventDefault();
     for (const element of gratitudeInputs) {
       if (!element || element.trim() === "") {
-        setErrorMessage("You need an entry for each input.");
+        setErrorMessage("Please fill out each entry before submitting.");
         return;
       }
     }
@@ -71,7 +71,7 @@ export default function GratitudeTab() {
               onClick={handleAddGratitudes}
               className="button button--submit"
               text="Submit"
-              Icon={Droplet}
+              Icon={ChevronRight}
               IconSize={18}
             />
           </div>

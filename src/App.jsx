@@ -71,7 +71,7 @@ function App() {
       <Header
         user={user}
         onAuth={() => {
-          user ? handleLogout() : setShowAuth(true);
+          user ? handleLogout() : null;
         }}
         navbar={<Navbar activeTab={activeTab} setActiveTab={setActiveTab} />}
       />

@@ -599,6 +599,9 @@ textarea {
 
 .header {
   background-color: #fefce8;
+  position: sticky;
+  top: 0;
+  z-index: 999999;
 }
 .header__content {
   display: flex;
@@ -612,17 +615,6 @@ textarea {
 }
 .header__brand--title {
   font-size: 3rem;
-}
-.header__logo {
-  align-self: center;
-  width: 4rem;
-  height: 4rem;
-  background-color: #d97706;
-  color: #ffffff;
-  border-radius: 20%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .header__streak {
   display: flex;
