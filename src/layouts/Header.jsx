@@ -1,16 +1,21 @@
-import { BookOpen, Sparkles, User } from "lucide-react";
+import { Sparkles, User } from "lucide-react";
 import Button from "../components/Button/Button";
+import { useAuth } from "../context/AuthContext";
 
 export default function Header({ user, navbar, onAuth }) {
+  const { userProfile } = useAuth();
+
   return (
     <header className="header">
       <div className="header__content">
         <div className="header__brand">
           <div>
-            <h1 className="header__brand--title">Soul Spark</h1>
+            <h1 className="header__brand--title">Reflections</h1>
             <div className="header__streak">
               <Sparkles size={14} />
-              <span className="header__streak--text">10 spirit streak</span>
+              <span className="header__streak--text">
+                {userProfile?.streak || 0} daily streak
+              </span>
             </div>
           </div>
         </div>

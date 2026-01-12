@@ -6,7 +6,7 @@ import { ChevronRight, Plus } from "lucide-react";
 import Button from "../../Button/Button";
 
 export default function PrayerCard() {
-  const { user } = useAuth();
+  const { user, setUserProfile } = useAuth();
   const [prayerTitle, setPrayerTitle] = useState("");
   const [prayerDetails, setPrayerDetails] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -31,6 +31,9 @@ export default function PrayerCard() {
         title: prayerTitle,
         details: prayerDetails,
       });
+      await firestoreService.updateUserStreak(user.uid);
+      const updatedProfile = await firestoreService.getUserProfile(user.uid);
+      setUserProfile(updatedProfile);
       setPrayerTitle("");
       setPrayerDetails("");
       notify("Prayer Added!");

@@ -20,7 +20,7 @@ export default function PrayerActions({ prayer }) {
   return (
     <>
       <div className="prayer-actions">
-        {prayer.status !== "answered" ? (
+        {prayer.status === "open" ? (
           <>
             <Button
               text="Mark Answered"
@@ -29,7 +29,7 @@ export default function PrayerActions({ prayer }) {
             />
             <Button
               text="Archive"
-              onClick={() => updatePrayerStatus(prayer.id, "archive")}
+              onClick={() => updatePrayerStatus(prayer.id, "archived")}
               className="button prayer-actions__link link-secondary"
             />
           </>
