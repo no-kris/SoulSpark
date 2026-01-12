@@ -41,6 +41,10 @@ textarea {
   font-family: inherit;
 }
 
+.Toastify {
+  font-size: 2rem !important;
+}
+
 .button {
   display: inline-flex;
   justify-content: center;

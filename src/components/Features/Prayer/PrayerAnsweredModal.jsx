@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useAuth } from "../../../context/AuthContext";
 import { firestoreService } from "../../../services/firebase/firestoreService";
 import Button from "../../Button/Button";
+import { celebrate } from "../../../features/utils/celebrate";
+import { notify } from "../../../features/utils/notify";
 
 export default function PrayerAnsweredModal({ prayer, onClose }) {
   const { user } = useAuth();
@@ -30,6 +32,8 @@ export default function PrayerAnsweredModal({ prayer, onClose }) {
         answerNote: answerNote,
       });
       onClose();
+      celebrate();
+      notify("Praise God!");
     } catch (error) {
       console.error("Error updating prayer testimony:", error);
       setErrorMessage("Something went wrong. Please try again.");
