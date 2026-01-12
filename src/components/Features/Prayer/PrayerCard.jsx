@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useAuth } from "../../../context/AuthContext";
 import { firestoreService } from "../../../services/firebase/firestoreService";
-import { toast } from "react-toastify";
 import { ChevronRight, Plus } from "lucide-react";
+import { notify } from "../../../features/utils/notify.js";
 import Button from "../../Button/Button";
 
 export default function PrayerCard() {
@@ -10,8 +10,6 @@ export default function PrayerCard() {
   const [prayerTitle, setPrayerTitle] = useState("");
   const [prayerDetails, setPrayerDetails] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-
-  const notify = (msg) => toast(msg);
 
   const handleAddPrayer = async (e) => {
     e.preventDefault();

@@ -5,6 +5,7 @@ import Modal from "../../Modal/Modal";
 import PrayerAnsweredModal from "./PrayerAnsweredModal";
 import { firestoreService } from "../../../services/firebase/firestoreService";
 import ConfirmDeleteModal from "../../../features/auth/ConfirmDeleteModal";
+import { notify } from "../../../features/utils/notify.js";
 
 export default function PrayerActions({ prayer }) {
   const [showModal, setShowModal] = useState(null);
@@ -22,6 +23,7 @@ export default function PrayerActions({ prayer }) {
     try {
       await firestoreService.deletePrayer(user.uid, prayer.id);
       setShowModal(null);
+      notify("Prayer was successfully deleted.");
     } catch (error) {
       console.error("Error deleting prayer:", error);
     }
