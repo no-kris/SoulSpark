@@ -23,7 +23,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: "Playfair Display", serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   margin: 0;
 }
 
@@ -108,6 +108,18 @@ textarea {
   border-radius: 1.5rem;
   background: #292524;
   color: white;
+}
+.button--cancel {
+  padding: 1.5rem 3rem;
+  border-radius: 1.5rem;
+  background: #e7e5e4;
+  color: #292524;
+}
+.button--danger {
+  padding: 1.5rem 3rem;
+  border-radius: 1.5rem;
+  background: #fee2e2;
+  color: #dc2626;
 }
 
 .guest-banner {
@@ -605,6 +617,11 @@ textarea {
   color: #6b7280;
 }
 
+.link-danger {
+  background-color: #fee2e2;
+  color: #ef4444;
+}
+
 .testimony-form {
   padding: 2rem;
   display: flex;
@@ -672,6 +689,27 @@ textarea {
   font-weight: 600;
 }
 
+.confirm-modal {
+  padding: 2rem;
+}
+.confirm-modal__title {
+  color: #b91c1c;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-size: 1.5rem;
+}
+.confirm-modal__message {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.confirm-modal__actions {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+}
+
 .navbar {
   display: flex;
   z-index: 9999;
@@ -713,6 +751,8 @@ textarea {
 }
 .header__brand--title {
   font-size: 3rem;
+  letter-spacing: 1.3px;
+  font-family: "Plus Jakarta Sans", sans-serif;
 }
 .header__streak {
   display: flex;

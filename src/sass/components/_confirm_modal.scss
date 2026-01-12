@@ -1,0 +1,26 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/fonts" as *;
+
+.confirm-modal {
+  padding: 2rem;
+
+  &__title {
+    color: $color-danger-700;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    font-size: $font-size-xl;
+  }
+
+  &__message {
+    font-size: $font-size-base;
+    line-height: 1.5;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+  }
+}

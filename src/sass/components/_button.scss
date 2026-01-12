@@ -76,4 +76,18 @@
     background: $color-stone-800;
     color: white;
   }
+
+  &--cancel {
+    padding: 1.5rem 3rem;
+    border-radius: 1.5rem;
+    background: $color-stone-200;
+    color: $color-stone-800;
+  }
+
+  &--danger {
+    padding: 1.5rem 3rem;
+    border-radius: 1.5rem;
+    background: $color-danger-100;
+    color: $color-danger-600;
+  }
 }

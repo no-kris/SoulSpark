@@ -4,16 +4,26 @@ import Button from "../../Button/Button";
 import Modal from "../../Modal/Modal";
 import PrayerAnsweredModal from "./PrayerAnsweredModal";
 import { firestoreService } from "../../../services/firebase/firestoreService";
+import ConfirmDeleteModal from "../../../features/auth/ConfirmDeleteModal";
 
 export default function PrayerActions({ prayer }) {
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(null);
   const { user } = useAuth();
 
   const updatePrayerStatus = async (prayerId, status) => {
     try {
       await firestoreService.updatePrayerStatus(user.uid, prayerId, status);
     } catch (error) {
-      console.log("Error color:", error);
+      console.log("Error updating prayer status:", error);
+    }
+  };
+
+  const handleDeletePrayer = async () => {
+    try {
+      await firestoreService.deletePrayer(user.uid, prayer.id);
+      setShowModal(null);
+    } catch (error) {
+      console.error("Error deleting prayer:", error);
     }
   };
 
@@ -24,7 +34,7 @@ export default function PrayerActions({ prayer }) {
           <>
             <Button
               text="Mark Answered"
-              onClick={() => setShowModal(true)}
+              onClick={() => setShowModal("prayer-answered")}
               className="button prayer-actions__link link-primary"
             />
             <Button
@@ -34,21 +44,39 @@ export default function PrayerActions({ prayer }) {
             />
           </>
         ) : (
-          <Button
-            text="Re-Open"
-            onClick={() => updatePrayerStatus(prayer.id, "open")}
-            className="button prayer-actions__link link-secondary"
-          />
+          <>
+            <Button
+              text="Re-Open"
+              onClick={() => updatePrayerStatus(prayer.id, "open")}
+              className="button prayer-actions__link link-secondary"
+            />
+            {prayer.status === "archived" && (
+              <Button
+                text="Delete"
+                onClick={() => setShowModal("delete")}
+                className="button prayer-actions__link link-danger"
+              />
+            )}
+          </>
         )}
       </div>
       <Modal
-        isOpen={showModal}
-        onClose={() => setShowModal(false)}
+        isOpen={!!showModal}
+        onClose={() => setShowModal(null)}
         children={
-          <PrayerAnsweredModal
-            onClose={() => setShowModal(false)}
-            prayer={prayer}
-          />
+          showModal === "prayer-answered" ? (
+            <PrayerAnsweredModal
+              onClose={() => setShowModal(null)}
+              prayer={prayer}
+            />
+          ) : (
+            <ConfirmDeleteModal
+              title="Delete Prayer"
+              message="Are you sure you want to delete this prayer? This action cannot be undone."
+              onConfirm={handleDeletePrayer}
+              onClose={() => setShowModal(null)}
+            />
+          )
         }
       />
     </>
