@@ -15,7 +15,8 @@ export default function PrayerActions({ prayer }) {
     try {
       await firestoreService.updatePrayerStatus(user.uid, prayerId, status);
     } catch (error) {
-      console.log("Error updating prayer status:", error);
+      console.error("Error updating prayer status:", error);
+      notify("Something went wrong. Please try again.");
     }
   };
 
@@ -26,6 +27,7 @@ export default function PrayerActions({ prayer }) {
       notify("Prayer was successfully deleted.");
     } catch (error) {
       console.error("Error deleting prayer:", error);
+      notify("Something went wrong. Please try again.");
     }
   };
 

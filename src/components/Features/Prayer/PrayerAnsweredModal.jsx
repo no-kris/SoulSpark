@@ -36,7 +36,7 @@ export default function PrayerAnsweredModal({ prayer, onClose }) {
       notify("Praise God!");
     } catch (error) {
       console.error("Error updating prayer testimony:", error);
-      setErrorMessage("Something went wrong. Please try again.");
+      notify("Something went wrong. Please try again.");
     }
   };
 
