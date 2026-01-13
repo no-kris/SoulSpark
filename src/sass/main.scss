@@ -1,17 +1,22 @@
 @use "./base/resets";
 
-@use "./components/button";
-@use "./components/guest-banner";
-@use "./components/daily-verse";
-@use "./components/modal";
-@use "./components/auth-modal";
-@use "./components/prayer-card";
-@use "./components/gratitude-card";
-@use "./components/filter-bar";
-@use "./components/prayer-item";
-@use "./components/prayer-actions";
-@use "./components/testimony-form";
-@use "./components/confirm_modal";
+@use "./components/ui/button";
+@use "./components/ui/modal";
+@use "./components/ui/confirm-modal";
+@use "./components/ui/filter-bar";
+
+@use "./components/auth/auth-modal";
+@use "./components/auth/guest-banner";
+
+@use "./components/prayer/prayer-card";
+@use "./components/prayer/prayer-item";
+@use "./components/prayer/prayer-actions";
+@use "./components/prayer/testimony-form";
+
+@use "./components/gratitude/gratitude-card";
+@use "./components/gratitude/gratitude-history";
+
+@use "./components/misc/daily-verse";
 
 @use "./layout/navbar";
 @use "./layout/header";
