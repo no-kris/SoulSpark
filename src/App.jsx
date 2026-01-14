@@ -11,7 +11,7 @@ import Modal from "./components/Modal/Modal";
 import AuthModal from "./features/auth/AuthModal";
 import PrayerTab from "./components/Features/Prayer/PrayerTab";
 import GratitudeTab from "./components/Features/Gratitude/GratitudeTab";
-import SpiritualTab from "./components/Features/Spiritual/SpiritualTab";
+import SpiritTab from "./components/Features/Spirit/SpiritTab";
 import { ToastContainer } from "react-toastify";
 
 function App() {
@@ -69,7 +69,7 @@ function App() {
         <ToastContainer />
         {activeTab === "prayer" && <PrayerTab />}
         {activeTab === "gratitude" && <GratitudeTab />}
-        {activeTab === "spiritual" && <SpiritualTab />}
+        {activeTab === "spirit" && <SpiritTab />}
       </main>
       <Modal
         isOpen={showAuth}
