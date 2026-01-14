@@ -7,9 +7,7 @@ import { notify } from "../../../features/utils/notify";
 
 export default function PrayerAnsweredModal({ prayer, onClose }) {
   const { user } = useAuth();
-  const [answerDate, setAnswerDate] = useState(
-    new Date().toISOString().split("T")[0]
-  );
+  const [answerDate, setAnswerDate] = useState("");
   const [answerNote, setAnswerNote] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 

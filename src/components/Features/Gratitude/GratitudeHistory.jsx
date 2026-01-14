@@ -39,7 +39,7 @@ export default function GratitudeHistory() {
                   <p className="date-box__month">
                     {d.toLocaleDateString("en-US", { month: "short" })}
                   </p>
-                  <p className="date-box__day">{d.getDate() + 1}</p>
+                  <p className="date-box__day">{d.getDate()}</p>
                 </div>
                 <ul className="gratitudes-history__list">
                   {entry.items.map((item, i) => (
