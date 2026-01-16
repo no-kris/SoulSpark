@@ -1,23 +1,26 @@
-import { useState } from "react";
+import { useAuth } from "../../../context/AuthContext";
 import ProgressBar from "../../Misc/ProgressBar";
-import SpiritPet from "./SpiritPet";
 import Stats from "../../Misc/Stats";
 import Badges from "../../Misc/Badges";
+import calculateLevel from "./utils/calculateLevel";
+import Spirit from "./Spirit";
 
 export default function SpiritTab() {
-  const [profileStats, setProfileStats] = useState({});
+  const { userProfile } = useAuth();
+  const xp = userProfile?.experiencePoints || 0;
+  const { level, xpInCurrentLevel, progressPercent } = calculateLevel(xp);
 
   return (
     <div className="spirit-container">
       <div className="spirit-container__header">
-        <h3>My Spirit Companion</h3>
-        <p>Form: (spirit pet)</p>
+        <h3>Spirit Flame</h3>
+        <span>Level: {level}</span>
       </div>
       <div className="spirit-container__pet">
-        <SpiritPet profileStats={profileStats} />
+        <Spirit level={level} />
       </div>
-      <ProgressBar profileStats={profileStats} />
-      <Stats profileStats={profileStats} />
+      <ProgressBar progressPercent={progressPercent} />
+      <Stats userProfile={userProfile} />
       <div>
         <Badges />
       </div>
