@@ -1,18 +1,26 @@
 @use "../../abstracts/variables" as *;
 
-.spirit-pet-container {
-  width: 240px;
-  height: 240px;
+.spirit-flame-container {
+  width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
 
-  // The SVG flame itself
-  .pet-svg {
+  .spirit-flame-inner {
     width: 100%;
-    max-width: 90%;
-    max-height: 220px;
+    max-width: 40rem; // Maximum width for the progress bar area
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  // The SVG flame itself
+  .flame-svg {
+    width: 240px;
+    height: 240px;
     filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
     transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 

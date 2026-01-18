@@ -20,13 +20,13 @@ const SpiritFlame = ({ level }) => {
   const baseColor = isDivine
     ? "#ffffff"
     : intensity > 0.4
-    ? "#fde047"
-    : "#fb923c";
+      ? "#fde047"
+      : "#fb923c";
   const midColor = isDivine
     ? "#fef3c7"
     : intensity > 0.4
-    ? "#fb923c"
-    : "#ea580c";
+      ? "#fb923c"
+      : "#ea580c";
   const outerColor = isDivine ? "#fb923c" : "#9a3412";
 
   // Particle count
@@ -44,7 +44,7 @@ const SpiritFlame = ({ level }) => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 100 100"
-      className="pet-svg animated"
+      className="flame-svg animated"
       style={{
         transform: `scale(${scale})`,
         transition: "transform 0.5s ease-out",
