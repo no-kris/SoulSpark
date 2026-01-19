@@ -15,14 +15,14 @@ export function AuthProvider({ children }) {
         setUser(currentUser);
         if (currentUser) {
           const profile = await firestoreService.getUserProfile(
-            currentUser.uid
+            currentUser.uid,
           );
           setUserProfile(profile);
         } else {
           setUserProfile(null);
         }
         setLoading(false);
-      }
+      },
     );
     return () => unsubscribe();
   }, []);

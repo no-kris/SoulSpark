@@ -10,22 +10,44 @@
 
   .spirit-flame-inner {
     width: 100%;
-    max-width: 40rem; // Maximum width for the progress bar area
+    max-width: 40rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: 2.5rem;
   }
 
-  // The SVG flame itself
-  .flame-svg {
-    width: 240px;
-    height: 240px;
-    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
-    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  // The SVG flame and its shadow wrapper
+  .flame-wrapper {
+    width: 180px;
+    height: 180px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
 
-    &:hover {
-      transform: scale(1.1) rotate(2deg);
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -5rem; // Pushes it up a bit into the SVG area if needed, or 0 for floor
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20rem;
+      height: 2rem;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(0, 0, 0, 0) 70%
+      );
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    .flame-svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
     }
   }
 }

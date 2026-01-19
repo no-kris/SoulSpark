@@ -2,6 +2,7 @@ import { useAuth } from "../../../context/AuthContext";
 import SpiritFlame from "./SpiritFlame";
 import ProgressBar from "../../Misc/ProgressBar";
 import calculateLevel from "./utils/calculateLevel";
+import Stats from "../../Misc/Stats";
 
 export default function Spirit() {
   const { userProfile } = useAuth();
@@ -19,6 +20,7 @@ export default function Spirit() {
           progressPercent={progressPercent}
           XP_PER_LEVEL={XP_PER_LEVEL}
         />
+        <Stats userProfile={userProfile} />
       </div>
     </div>
   );

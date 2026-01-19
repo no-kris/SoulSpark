@@ -35,25 +35,11 @@
   &__flame {
     margin: 1rem 0;
     width: 30rem;
-    height: 25rem;
+    min-height: 15rem; // Reduced from 25rem fixed
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
     position: relative;
-
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      width: 12rem;
-      height: 2rem;
-      background: radial-gradient(
-        ellipse at center,
-        rgba(0, 0, 0, 0.1) 0%,
-        rgba(0, 0, 0, 0) 70%
-      );
-      border-radius: 50%;
-      z-index: -1;
-    }
   }
 }

@@ -1,0 +1,40 @@
+@use "../../abstracts/variables" as *;
+@use "../../abstracts/fonts" as *;
+
+.stats-row {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  padding-top: 2rem;
+  color: $color-text-sub;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    &:nth-child(1) .stats-row__value {
+      color: $color-amber-700;
+    }
+    &:nth-child(2) .stats-row__value {
+      color: $color-emerald-700;
+    }
+    &:nth-child(3) .stats-row__value {
+      color: blue;
+    }
+  }
+
+  &__value {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+  }
+
+  &__label {
+    font-size: $font-size-base;
+    text-transform: uppercase;
+    font-weight: $font-weight-semibold;
+    letter-spacing: 1.2px;
+  }
+}
