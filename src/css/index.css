@@ -862,6 +862,102 @@ textarea {
   letter-spacing: 1.2px;
 }
 
+.badges-container {
+  padding: 2rem;
+  margin-top: 1rem;
+}
+
+.history-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "Playfair Display", serif;
+  font-size: 1.25rem;
+  color: #292524;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+.history-title svg {
+  color: #d97706;
+}
+
+.badge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 1.25rem;
+  padding-bottom: 2rem;
+}
+
+.badge-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(231, 229, 228, 0.5);
+  border-radius: 1.25rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+.badge-card.unlocked {
+  background: linear-gradient(135deg, rgba(255, 251, 235, 0.8) 0%, rgba(255, 255, 255, 0.9) 100%);
+  border-color: rgba(252, 235, 168, 0.6);
+}
+.badge-card.unlocked .badge-icon {
+  color: #d97706;
+  filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.3));
+}
+.badge-card.locked {
+  opacity: 0.6;
+  background: rgba(245, 245, 244, 0.4);
+}
+.badge-card.locked .badge-icon {
+  color: #6b7280;
+}
+.badge-card.locked .badge-name {
+  color: #374151;
+}
+
+.badge-icon {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.badge-name {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #292524;
+  margin-bottom: 0.5rem;
+}
+
+.badge-desc {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 1rem;
+  color: #78716c;
+  line-height: 1.4;
+  padding: 0 0.5rem;
+}
+
+.check-icon {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  color: #059669;
+  background: #d1fae5;
+  border-radius: 50%;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .spirit-container {
   padding: 2rem;
   display: flex;

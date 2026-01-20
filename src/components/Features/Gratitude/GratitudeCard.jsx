@@ -3,7 +3,6 @@ import { firestoreService } from "../../../services/firebase/firestoreService";
 import { useAuth } from "../../../context/AuthContext";
 import { notify } from "../../../features/utils/notify";
 import GratitudeActions from "./GratitudeActions";
-import { celebrate } from "../../../features/utils/celebrate";
 
 export default function GratitudeCard() {
   const [gratitudeInputs, setGratitudeInputs] = useState(["", "", ""]);
@@ -39,11 +38,10 @@ export default function GratitudeCard() {
       await firestoreService.addGratitudesEntry(
         user.uid,
         gratitudeInputs,
-        isDraft
+        isDraft,
       );
       if (!isDraft) {
         setGratitudeStatus("completed");
-        celebrate();
         notify("All gratitudes saved!");
       } else {
         notify("Draft saved!");
@@ -80,8 +78,8 @@ export default function GratitudeCard() {
                 index === 0
                   ? "Something beautiful..."
                   : index === 1
-                  ? "A challenge overcome..."
-                  : "His steady hand..."
+                    ? "A challenge overcome..."
+                    : "His steady hand..."
               }
               className="gratitude-entry__input"
             />

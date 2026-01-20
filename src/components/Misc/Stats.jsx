@@ -1,31 +1,4 @@
-import { useEffect, useState } from "react";
-import { firestoreService } from "../../services/firebase/firestoreService";
-import { useAuth } from "../../context/AuthContext";
-
-export default function Stats({ userProfile }) {
-  const { user } = useAuth();
-  const [counts, setCounts] = useState({
-    prayers: 0,
-    gratitudes: 0,
-  });
-
-  useEffect(() => {
-    async function fetchCounts() {
-      if (!user?.uid) return;
-
-      const [prayerCount, gratitudeCount] = await Promise.all([
-        firestoreService.getCollectionCount(user.uid, "prayers"),
-        firestoreService.getCollectionCount(user.uid, "gratitudes"),
-      ]);
-
-      setCounts({
-        prayers: prayerCount,
-        gratitudes: gratitudeCount,
-      });
-    }
-    fetchCounts();
-  }, [user?.uid]);
-
+export default function Stats({ userProfile, counts }) {
   return (
     <div className="stats-wrapper">
       <div className="stats-row">
