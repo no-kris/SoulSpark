@@ -289,7 +289,7 @@ textarea {
   padding: 1rem 1.25rem;
   border: 1px solid transparent;
   border-radius: 1rem;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   background-color: #fafaf9;
   color: #292524;
@@ -308,7 +308,7 @@ textarea {
 .auth-modal__content--input::placeholder {
   color: #6b7280;
   font-weight: 400;
-  font-size: 1.25rem;
+  font-size: 1.6rem;
 }
 .auth-modal__input-wrapper {
   position: relative;

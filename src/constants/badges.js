@@ -24,7 +24,7 @@ const BADGES = [
     name: "The Seeker",
     desc: "First Prayer Logged",
     icon: HelpingHand,
-    condition: (stats) => stats.counts.prayers >= 10,
+    condition: (stats) => stats.counts.prayers >= 1,
   },
   {
     id: "harvest",
