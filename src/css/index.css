@@ -539,11 +539,11 @@ textarea {
   border-left: 4px solid #10b981;
 }
 .testimony-form__input--date, .testimony-form__input--text {
+  font-size: 1.6rem;
   width: 100%;
   padding: 1rem;
   border: 1px solid #e7e5e4;
   border-radius: 1rem;
-  font-size: 1rem;
   transition: all 0.2s;
 }
 .testimony-form__input--date:focus, .testimony-form__input--text:focus {
