@@ -3,7 +3,7 @@ export default function Stats({ userProfile, counts }) {
     <div className="stats-wrapper">
       <div className="stats-row">
         <div className="stats-row__item">
-          <span className="stats-row__value">{userProfile.streak}</span>
+          <span className="stats-row__value">{userProfile?.streak || 0}</span>
           <span className="stats-row__label">Streak</span>
         </div>
         <div className="stats-row__item">

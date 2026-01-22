@@ -60,14 +60,14 @@
     padding: 1rem 1.25rem;
     border-radius: 1rem;
     border: 1px solid $color-emerald-500;
-    font-size: $font-size-xl;
+    font-size: 1.6rem;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     background: $color-stone-50;
     font-family: inherit;
 
     &::placeholder {
       color: $color-stone-500;
-      font-size: $font-size-xl;
+      font-size: 1.6rem;
       opacity: 0.7;
     }
 

@@ -31,14 +31,14 @@ const BADGES = [
     name: "Faithful",
     desc: "3 Day Streak",
     icon: Flower,
-    condition: (stats) => stats.userProfile.streak >= 3,
+    condition: (stats) => (stats.userProfile?.streak || 0) >= 3,
   },
   {
     id: "week",
     name: "Week of Grace",
     desc: "7 Day Streak",
     icon: Lightbulb,
-    condition: (stats) => stats.userProfile.streak >= 7,
+    condition: (stats) => (stats.userProfile?.streak || 0) >= 7,
   },
   {
     id: "witness",
@@ -73,7 +73,7 @@ const BADGES = [
     name: "Month of Devotion",
     desc: "30 Day Streak",
     icon: Calendar,
-    condition: (stats) => stats.userProfile.streak >= 30,
+    condition: (stats) => (stats.userProfile?.streak || 0) >= 30,
   },
 ];
 
