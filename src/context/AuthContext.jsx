@@ -10,21 +10,34 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = authService.subscribeToAuthChnages(
+    let profileUnsubscribe = null;
+    const authUnsubscribe = authService.subscribeToAuthChnages(
       async (currentUser) => {
         setUser(currentUser);
+        // Clear existing profile subscription before creating a new subscription.
+        // This avoids Zombie Listeners running in the background. If the user logs out
+        // and then logs back in at a different time or maybe a different account.
+        if (profileUnsubscribe) {
+          profileUnsubscribe();
+          profileUnsubscribe = null;
+        }
         if (currentUser) {
-          const profile = await firestoreService.getUserProfile(
+          profileUnsubscribe = firestoreService.subscribeToUserProfile(
             currentUser.uid,
+            (profileData) => {
+              setUserProfile(profileData);
+            },
           );
-          setUserProfile(profile);
         } else {
           setUserProfile(null);
         }
         setLoading(false);
       },
     );
-    return () => unsubscribe();
+    return () => {
+      authUnsubscribe();
+      if (profileUnsubscribe) profileUnsubscribe();
+    };
   }, []);
 
   return (
