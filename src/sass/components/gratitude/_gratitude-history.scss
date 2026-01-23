@@ -18,7 +18,8 @@
 
   &__card {
     display: flex;
-    align-items: flex-start;
+    align-items: flex-start center;
+    justify-content: center;
     gap: 2rem;
     background: white;
     padding: 2rem;
@@ -70,6 +71,8 @@
     align-items: center;
     gap: 1rem;
     font-size: $font-size-base;
+    line-height: 1.5;
+    letter-spacing: 1px;
     color: $color-stone-700;
   }
 

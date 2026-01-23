@@ -16,6 +16,25 @@ export default function PrayerList({ prayers, prayerFilter }) {
           </span>
         </div>
         <p className="prayer-item__details">{prayer.details}</p>
+        {prayer.status === "answered" && (
+          <div className="prayer-item__testimony">
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <span className="prayer-item__testimony--title">Testimony</span>
+              <span className="prayer-item__testimony--date">
+                {prayer.answerDate}
+              </span>
+            </div>
+            <span className="prayer-item__testimony--note">
+              "{prayer.answerNote}"
+            </span>
+          </div>
+        )}
         <PrayerActions prayer={prayer} />
       </div>
     ));

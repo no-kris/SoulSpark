@@ -13,7 +13,8 @@
   padding: 1.5rem;
   margin-bottom: 1rem;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
     0 2px 4px -1px rgba(0, 0, 0, 0.03);
 
   &:active {
@@ -24,6 +25,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 0.5rem;
     margin-bottom: 0.75rem;
 
     &--text {
@@ -38,8 +40,37 @@
     color: $color-text-sub;
     line-height: 1.6;
     margin: 0;
-    font-size: $font-size-base;
+    font-size: $font-size-lg;
     white-space: pre-wrap;
+  }
+
+  &__testimony {
+    padding: 1rem 2rem;
+    background: $color-amber-50;
+    border: 1px solid $color-amber-100;
+    border-radius: 1.5rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    &--title {
+      font-size: $font-size-base;
+      color: $color-amber-700;
+      font-weight: $font-weight-semibold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    &--date {
+      color: $color-text-sub;
+    }
+
+    &--note {
+      font-size: $font-size-lg;
+      font-style: italic;
+      color: $color-text-sub;
+    }
   }
 }
 
