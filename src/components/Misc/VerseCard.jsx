@@ -14,7 +14,7 @@ export default function VerseCard() {
         1000 /
         60 /
         60 /
-        24
+        24,
     );
     setDailyVerse(VERSES[dayOfYear % VERSES.length]);
   }, []);
