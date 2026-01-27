@@ -72,7 +72,6 @@ function App() {
         {activeTab === "gratitude" && <GratitudeTab />}
         {activeTab === "spirit" && <SpiritTab />}
       </main>
-      <Footer />
       <Modal
         isOpen={showAuth}
         onClose={() => setShowAuth(false)}
