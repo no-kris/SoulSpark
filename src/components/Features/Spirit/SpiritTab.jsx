@@ -1,4 +1,4 @@
-import { useAuth } from "../../../context/AuthContext";
+import { useAuth } from "../../../hooks/useAuth";
 import { useProfileStats } from "../../../hooks/useProfileStats";
 import Badges from "../../Misc/Badges";
 import Spirit from "./Spirit";

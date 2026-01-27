@@ -1,4 +1,4 @@
-import { useAuth } from "../../../context/AuthContext";
+import { useAuth } from "../../../hooks/useAuth";
 import SpiritFlame from "./SpiritFlame";
 import ProgressBar from "../../Misc/ProgressBar";
 import calculateLevel from "./utils/calculateLevel";

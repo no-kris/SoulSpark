@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAuth } from "../../../context/AuthContext";
+import { useAuth } from "../../../hooks/useAuth";
 import { firestoreService } from "../../../services/firebase/firestoreService";
 import Button from "../../Button/Button";
 import { celebrate } from "../../../features/utils/celebrate";
@@ -33,7 +33,7 @@ export default function PrayerAnsweredModal({ prayer, onClose }) {
       celebrate();
       notify("Praise God!");
     } catch (error) {
-      console.error("Error updating prayer testimony:", error);
+      setErrorMessage(`Error updating prayer testimony: ${error}`);
       notify("Something went wrong. Please try again.");
     }
   };

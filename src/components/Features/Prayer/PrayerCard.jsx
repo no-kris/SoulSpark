@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAuth } from "../../../context/AuthContext";
+import { useAuth } from "../../../hooks/useAuth";
 import { firestoreService } from "../../../services/firebase/firestoreService";
 import { ChevronRight, Plus } from "lucide-react";
 import { notify } from "../../../features/utils/notify.js";
@@ -29,7 +29,6 @@ export default function PrayerCard() {
         title: prayerTitle,
         details: prayerDetails,
       });
-      await firestoreService.updateUserStreak(user.uid);
       setPrayerTitle("");
       setPrayerDetails("");
       notify("Prayer Added!");

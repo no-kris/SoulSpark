@@ -1,5 +1,5 @@
 import { CheckCircle } from "lucide-react";
-import { useAuth } from "../../../context/AuthContext";
+import { useAuth } from "../../../hooks/useAuth";
 import { firestoreService } from "../../../services/firebase/firestoreService";
 import { useEffect, useState } from "react";
 
@@ -17,7 +17,7 @@ export default function GratitudeHistory() {
       user.uid,
       (data) => {
         setGratitudes(data);
-      }
+      },
     );
 
     return () => unsubscribe();

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { authService } from "./services/firebase/authServices";
-import { useAuth } from "./context/AuthContext";
 import "./css/index.css";
 import "react-toastify/dist/ReactToastify.css";
 import Header from "./layouts/Header";
@@ -13,6 +12,8 @@ import PrayerTab from "./components/Features/Prayer/PrayerTab";
 import GratitudeTab from "./components/Features/Gratitude/GratitudeTab";
 import SpiritTab from "./components/Features/Spirit/SpiritTab";
 import { ToastContainer } from "react-toastify";
+import Footer from "./layouts/Footer";
+import { useAuth } from "./hooks/useAuth";
 
 function App() {
   const { user } = useAuth();
@@ -71,6 +72,7 @@ function App() {
         {activeTab === "gratitude" && <GratitudeTab />}
         {activeTab === "spirit" && <SpiritTab />}
       </main>
+      <Footer />
       <Modal
         isOpen={showAuth}
         onClose={() => setShowAuth(false)}

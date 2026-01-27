@@ -1,8 +1,7 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { authService } from "../services/firebase/authServices";
 import { firestoreService } from "../services/firebase/firestoreService";
-
-const AuthContext = createContext();
+import { AuthContext } from "./context";
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
@@ -22,6 +21,9 @@ export function AuthProvider({ children }) {
           profileUnsubscribe = null;
         }
         if (currentUser) {
+          if (!currentUser.isAnonymous) {
+            firestoreService.updateUserStreak(currentUser.uid);
+          }
           profileUnsubscribe = firestoreService.subscribeToUserProfile(
             currentUser.uid,
             (profileData) => {
@@ -48,11 +50,3 @@ export function AuthProvider({ children }) {
     </AuthContext.Provider>
   );
 }
-
-export const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (context === undefined) {
-    throw new Error("useAuth must be used within an AuthProvider");
-  }
-  return context;
-};

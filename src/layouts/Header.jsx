@@ -1,6 +1,6 @@
 import { Sparkles, User } from "lucide-react";
 import Button from "../components/Button/Button";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../hooks/useAuth";
 
 export default function Header({ user, navbar, onAuth }) {
   const { userProfile } = useAuth();

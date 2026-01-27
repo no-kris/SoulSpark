@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { firestoreService } from "../../../services/firebase/firestoreService";
-import { useAuth } from "../../../context/AuthContext";
+import { useAuth } from "../../../hooks/useAuth";
 import { notify } from "../../../features/utils/notify";
 import GratitudeActions from "./GratitudeActions";
 

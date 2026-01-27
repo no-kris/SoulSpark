@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAuth } from "../../../context/AuthContext";
+import { useAuth } from "../../../hooks/useAuth";
 import Button from "../../Button/Button";
 import Modal from "../../Modal/Modal";
 import PrayerAnsweredModal from "./PrayerAnsweredModal";

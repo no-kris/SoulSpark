@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useAuth } from "../../../context/AuthContext";
+import { useAuth } from "../../../hooks/useAuth";
 import PrayerFilterBar from "./PrayerFilterBar";
 import { firestoreService } from "../../../services/firebase/firestoreService";
 import PrayerList from "./PrayerList";
@@ -19,7 +19,7 @@ export default function PrayerHistory() {
       user.uid,
       (data) => {
         setPrayers(data);
-      }
+      },
     );
 
     return () => unsubscribe();
