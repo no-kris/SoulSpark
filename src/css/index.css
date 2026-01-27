@@ -630,7 +630,6 @@ a {
   margin-bottom: 2rem;
 }
 .gratitude-card__title {
-  font-family: "Playfair Display", serif;
   font-size: 2rem;
   color: #292524;
   font-weight: 700;
@@ -998,6 +997,44 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.bug-report {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.bug-report__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.bug-report__back {
+  position: absolute;
+  left: 0.3rem;
+  top: 0.5rem;
+  color: #78716c;
+}
+.bug-report__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.bug-report__form--desc {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  color: #292524;
+}
+.bug-report__form--textarea {
+  font-size: 1.6rem;
+  min-height: 15rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid #6b7280;
+  resize: vertical;
 }
 
 .spirit-container {

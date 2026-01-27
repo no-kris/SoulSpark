@@ -12,7 +12,6 @@ import PrayerTab from "./components/Features/Prayer/PrayerTab";
 import GratitudeTab from "./components/Features/Gratitude/GratitudeTab";
 import SpiritTab from "./components/Features/Spirit/SpiritTab";
 import { ToastContainer } from "react-toastify";
-import Footer from "./layouts/Footer";
 import { useAuth } from "./hooks/useAuth";
 
 function App() {
