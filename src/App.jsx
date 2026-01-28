@@ -18,40 +18,21 @@ function App() {
   const { user } = useAuth();
   const [activeTab, setActiveTab] = useState("prayer");
   const [showAuth, setShowAuth] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSignUp = async (user) => {
-    try {
-      await authService.signUp(user.email, user.password);
-      setShowAuth(false);
-    } catch (error) {
-      setErrorMessage(error);
-    }
+    await authService.signUp(user.email, user.password);
   };
 
   const handleLogin = async (user) => {
-    try {
-      await authService.signIn(user.email, user.password);
-      setShowAuth(false);
-    } catch (error) {
-      setErrorMessage(error);
-    }
+    await authService.signIn(user.email, user.password);
   };
 
   const handleResetPassword = async (email) => {
-    try {
-      await authService.resetPassword(email);
-    } catch (error) {
-      setErrorMessage(error);
-    }
+    await authService.resetPassword(email);
   };
 
   const handleLogout = async () => {
-    try {
-      await authService.logout();
-    } catch (error) {
-      setErrorMessage(error);
-    }
+    await authService.logout();
   };
 
   return (
@@ -75,17 +56,12 @@ function App() {
         isOpen={showAuth}
         onClose={() => setShowAuth(false)}
         children={
-          <>
-            {errorMessage && (
-              <div className="auth-modal__error">{errorMessage}</div>
-            )}
-            <AuthModal
-              onClose={() => setShowAuth(false)}
-              onSignUp={handleSignUp}
-              onLogin={handleLogin}
-              onResetPassword={handleResetPassword}
-            />
-          </>
+          <AuthModal
+            onClose={() => setShowAuth(false)}
+            onSignUp={handleSignUp}
+            onLogin={handleLogin}
+            onResetPassword={handleResetPassword}
+          />
         }
       />
     </>

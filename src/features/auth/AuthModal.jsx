@@ -14,31 +14,57 @@ export default function AuthModal({
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = () => {
+  const isValidEmail = (email) => {
+    return /\S+@\S+\.\S+/.test(email);
+  };
+
+  const handleSubmit = async () => {
+    setErrorMessage("");
+
+    if (!email) {
+      setErrorMessage("EMAIL IS REQUIRED");
+      return;
+    }
+
+    if (!isValidEmail(email)) {
+      setErrorMessage("INVALID EMAIL FORMAT");
+      return;
+    }
+
     if (mode === "reset") {
-      if (!email) {
-        setErrorMessage("EMAIL IS REQUIRED");
-        return;
+      setLoading(true);
+      try {
+        await onResetPassword(email);
+        onClose();
+      } catch (error) {
+        setErrorMessage(error.message);
+      } finally {
+        setLoading(false);
       }
-      onResetPassword(email);
+      return;
+    }
+
+    if (!password) {
+      setErrorMessage("PASSWORD REQUIRED");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      if (mode === "login") {
+        await onLogin({ email, password });
+      } else if (mode === "signup") {
+        await onSignUp({ email, password });
+      }
       onClose();
-      return;
+    } catch (error) {
+      console.error(error);
+      setErrorMessage("Authentication failed. Try again.");
+    } finally {
+      setLoading(false);
     }
-
-    if (!email || !password) {
-      setErrorMessage("CREDENTIALS REQUIRED");
-      return;
-    }
-
-    if (mode === "login") {
-      setErrorMessage("AUTHENTICATING...");
-      onLogin({ email, password });
-    } else if (mode === "signup") {
-      setErrorMessage("REGISTERING...");
-      onSignUp({ email, password });
-    }
-    onClose();
   };
 
   return (
@@ -54,7 +80,7 @@ export default function AuthModal({
       <div className="auth-modal__content">
         <input
           aria-label="Email"
-          type="email"
+          required
           id="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -66,6 +92,7 @@ export default function AuthModal({
             <input
               type={showPassword ? "text" : "password"}
               aria-label="PASSWORD"
+              required
               id="password"
               value={password}
               onChange={(e) => {
@@ -85,12 +112,15 @@ export default function AuthModal({
       <div className="auth-modal__mode">{handleModeChange(mode, setMode)}</div>
       <Button
         onClick={handleSubmit}
+        disabled={loading}
         text={
-          mode === "login"
-            ? "LOG IN"
-            : mode === "signup"
-            ? "CREATE AN ACCOUNT"
-            : "SEND RESET LINK"
+          loading
+            ? "PLEASE WAIT..."
+            : mode === "login"
+              ? "LOG IN"
+              : mode === "signup"
+                ? "CREATE AN ACCOUNT"
+                : "SEND RESET LINK"
         }
         className="button button--auth"
       />
