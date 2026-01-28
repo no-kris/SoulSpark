@@ -3,7 +3,7 @@ import { useState } from "react";
 import ConfirmDeleteModal from "./ConfirmDeleteModal";
 import BugReportForm from "../../components/Misc/BugReportForm";
 
-export default function SettingsModal() {
+export default function SettingsModal({ onDeleteAccount }) {
   const [view, setView] = useState("menu"); // menu | bug | delete
 
   const goBack = () => setView("menu");
@@ -41,7 +41,7 @@ export default function SettingsModal() {
       {view === "delete" && (
         <ConfirmDeleteModal
           onClose={goBack}
-          onConfirm={() => console.log("Deleting Account")}
+          onConfirm={() => onDeleteAccount()}
         />
       )}
     </div>

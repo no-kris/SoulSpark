@@ -4,10 +4,36 @@ import { useAuth } from "../hooks/useAuth";
 import { useState } from "react";
 import Modal from "../components/Modal/Modal";
 import SettingsModal from "../features/auth/SettingsModal";
+import ReauthModal from "../features/auth/ReauthModal";
+import { authService } from "../services/firebase/authServices";
+import { firestoreService } from "../services/firebase/firestoreService";
 
 export default function Header({ user, navbar, onAuth }) {
   const { userProfile } = useAuth();
   const [showSettings, setShowSettings] = useState(false);
+  const [showReauth, setShowReauth] = useState(false);
+
+  const handleDeleteAccount = async () => {
+    try {
+      await firestoreService.clearUserData(user.uid);
+      await authService.deleteAccount();
+      alert("Your account has been successfully deleted.");
+      setShowSettings(false);
+    } catch (error) {
+      console.log("Failed to delete the user", error);
+      if (error.code === "auth/requires-recent-login") {
+        setShowReauth(true);
+      } else {
+        alert("Failed to delete account completely. Please try again.");
+      }
+    }
+  };
+
+  const handleReauth = async (password) => {
+    await authService.reauthenticate(password);
+    setShowReauth(false);
+    await handleDeleteAccount();
+  };
 
   return (
     <>
@@ -49,7 +75,22 @@ export default function Header({ user, navbar, onAuth }) {
       <Modal
         isOpen={showSettings}
         onClose={() => setShowSettings(false)}
-        children={<SettingsModal onClose={() => setShowSettings(false)} />}
+        children={
+          <SettingsModal
+            onClose={() => setShowSettings(false)}
+            onDeleteAccount={handleDeleteAccount}
+          />
+        }
+      />
+      <Modal
+        isOpen={showReauth}
+        onClose={() => setShowReauth(false)}
+        children={
+          <ReauthModal
+            onConfirm={handleReauth}
+            onClose={() => setShowReauth(false)}
+          />
+        }
       />
     </>
   );
