@@ -2,6 +2,8 @@ import { Eye, EyeOff, User } from "lucide-react";
 import { useState } from "react";
 import Button from "../../components/Button/Button";
 import handleModeChange from "../utils/handleModeChange";
+import { sendWelcomeEmail } from "../utils/sendWelcomeEmail";
+import { notify } from "../utils/notify";
 
 export default function AuthModal({
   onClose,
@@ -57,6 +59,8 @@ export default function AuthModal({
         await onLogin({ email, password });
       } else if (mode === "signup") {
         await onSignUp({ email, password });
+        await sendWelcomeEmail(email);
+        notify("Welcome email sent!");
       }
       onClose();
     } catch (error) {
