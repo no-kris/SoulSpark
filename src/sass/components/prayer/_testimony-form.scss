@@ -33,8 +33,50 @@
     border-left: 4px solid $color-emerald-500;
   }
 
+  &__date-wrapper {
+    position: relative;
+    width: 100%;
+    border: 1px solid $color-stone-200;
+    border-radius: 1rem;
+    background-color: white;
+    transition: all 0.2s;
+    min-height: 48px;
+
+    /* Focus ring when input inside is focused */
+    &:focus-within {
+      outline: none;
+      border-color: $color-emerald-500;
+      box-shadow: 0 0 0 3px rgba($color-emerald-500, 0.1);
+    }
+  }
+
+  &__date-display {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    font-size: 1.6rem;
+    color: $color-text-main;
+    display: flex;
+    align-items: center;
+    pointer-events: none; /* Let clicks pass through to input */
+    z-index: 1;
+  }
+
   &__input {
-    &--date,
+    &--date {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0; /* Hidden but clickable */
+        z-index: 2;
+        cursor: pointer;
+    }
+
     &--text {
       font-size: 1.6rem;
       width: 100%;
@@ -42,17 +84,15 @@
       border: 1px solid $color-stone-200;
       border-radius: 1rem;
       transition: all 0.2s;
+      resize: none;
+      min-height: 12rem;
+      font-family: inherit;
 
       &:focus {
         outline: none;
         border-color: $color-emerald-500;
         box-shadow: 0 0 0 3px rgba($color-emerald-500, 0.1);
       }
-    }
-
-    &--text {
-      resize: none;
-      min-height: 12rem;
     }
   }
 

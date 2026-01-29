@@ -47,13 +47,17 @@ export default function PrayerAnsweredModal({ prayer, onClose }) {
 
       <div className="testimony-form__prayer-title">{prayer.title}</div>
       {errorMessage && <div className="auth-modal__error">{errorMessage}</div>}
-      <input
-        type="date"
-        value={answerDate}
-        onChange={(e) => setAnswerDate(e.target.value)}
-        onClick={(e) => e.target.showPicker && e.target.showPicker()}
-        className="testimony-form__input--date"
-      />
+      <div className="testimony-form__date-wrapper">
+        <div className="testimony-form__date-display">
+          {answerDate || "Select Date Answered"}
+        </div>
+        <input
+          type="date"
+          value={answerDate}
+          onChange={(e) => setAnswerDate(e.target.value)}
+          className="testimony-form__input--date"
+        />
+      </div>
       <textarea
         placeholder="Write your testimony here..."
         rows="4"
