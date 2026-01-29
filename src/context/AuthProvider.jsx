@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { authService } from "../services/firebase/authServices";
 import { firestoreService } from "../services/firebase/firestoreService";
 import { AuthContext } from "./context";
+import { SplashScreen } from "@capacitor/splash-screen";
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
@@ -10,8 +11,17 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     let profileUnsubscribe = null;
-    const authUnsubscribe = authService.subscribeToAuthChnages(
+    let authUnsubscribe = null;
+
+    // Safety timeout to prevent infinite loading
+    const timeoutId = setTimeout(async () => {
+       setLoading(false);
+       await SplashScreen.hide();
+    }, 4000);
+
+    authUnsubscribe = authService.subscribeToAuthChnages(
       async (currentUser) => {
+        clearTimeout(timeoutId); // Clear timeout if auth resolves
         setUser(currentUser);
         // Clear existing profile subscription before creating a new subscription.
         // This avoids Zombie Listeners running in the background. If the user logs out
@@ -34,11 +44,13 @@ export function AuthProvider({ children }) {
           setUserProfile(null);
         }
         setLoading(false);
+        await SplashScreen.hide();
       },
     );
     return () => {
-      authUnsubscribe();
+      if (authUnsubscribe) authUnsubscribe();
       if (profileUnsubscribe) profileUnsubscribe();
+      clearTimeout(timeoutId);
     };
   }, []);
 
@@ -46,7 +58,7 @@ export function AuthProvider({ children }) {
     <AuthContext.Provider
       value={{ user, userProfile, setUserProfile, loading }}
     >
-      {!loading && children}
+      {children}
     </AuthContext.Provider>
   );
 }

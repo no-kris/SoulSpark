@@ -13,6 +13,7 @@
   "dependencies": {
     "@capacitor/core": "^8.0.2",
     "@capacitor/ios": "^8.0.2",
+    "@capacitor/splash-screen": "^8.0.0",
     "@emailjs/browser": "^4.4.1",
     "canvas-confetti": "^1.9.4",
     "firebase": "^12.7.0",
