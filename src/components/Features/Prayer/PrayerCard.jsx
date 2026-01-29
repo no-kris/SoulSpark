@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../../../hooks/useAuth";
 import { firestoreService } from "../../../services/firebase/firestoreService";
 import { ChevronRight, Plus } from "lucide-react";
-import { notify } from "../../../features/utils/notify.js";
+import { notify } from "../../../utils/notify.js";
 import Button from "../../Button/Button";
 
 export default function PrayerCard() {

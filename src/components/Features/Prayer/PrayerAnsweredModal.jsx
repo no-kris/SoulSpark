@@ -2,12 +2,15 @@ import { useState } from "react";
 import { useAuth } from "../../../hooks/useAuth";
 import { firestoreService } from "../../../services/firebase/firestoreService";
 import Button from "../../Button/Button";
-import { celebrate } from "../../../features/utils/celebrate";
-import { notify } from "../../../features/utils/notify";
+import { celebrate } from "../../../utils/celebrate";
+import { notify } from "../../../utils/notify";
+import { formatDateForDisplay } from "../../../utils/formatDate";
 
 export default function PrayerAnsweredModal({ prayer, onClose }) {
   const { user } = useAuth();
-  const [answerDate, setAnswerDate] = useState("");
+  const [answerDate, setAnswerDate] = useState(
+    new Date().toISOString().split("T")[0]
+  );
   const [answerNote, setAnswerNote] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -49,13 +52,14 @@ export default function PrayerAnsweredModal({ prayer, onClose }) {
       {errorMessage && <div className="auth-modal__error">{errorMessage}</div>}
       <div className="testimony-form__date-wrapper">
         <div className="testimony-form__date-display">
-          {answerDate || "Select Date Answered"}
+          {formatDateForDisplay(answerDate)}
         </div>
         <input
           type="date"
           value={answerDate}
           onChange={(e) => setAnswerDate(e.target.value)}
           className="testimony-form__input--date"
+          onClick={(e) => e.target.showPicker?.()}
         />
       </div>
       <textarea

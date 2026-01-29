@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { firestoreService } from "../../../services/firebase/firestoreService";
 import { useAuth } from "../../../hooks/useAuth";
-import { notify } from "../../../features/utils/notify";
+import { notify } from "../../../utils/notify";
 import GratitudeActions from "./GratitudeActions";
 
 export default function GratitudeCard() {
@@ -38,7 +38,7 @@ export default function GratitudeCard() {
       await firestoreService.addGratitudesEntry(
         user.uid,
         gratitudeInputs,
-        isDraft,
+        isDraft
       );
       if (!isDraft) {
         setGratitudeStatus("completed");
@@ -78,8 +78,8 @@ export default function GratitudeCard() {
                 index === 0
                   ? "Something beautiful..."
                   : index === 1
-                    ? "A challenge overcome..."
-                    : "His steady hand..."
+                  ? "A challenge overcome..."
+                  : "His steady hand..."
               }
               className="gratitude-entry__input"
             />

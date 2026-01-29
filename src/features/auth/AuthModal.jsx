@@ -1,9 +1,9 @@
 import { Eye, EyeOff, User } from "lucide-react";
 import { useState } from "react";
 import Button from "../../components/Button/Button";
-import handleModeChange from "../utils/handleModeChange";
-import { sendWelcomeEmail } from "../utils/sendWelcomeEmail";
-import { notify } from "../utils/notify";
+import handleModeChange from "./handleModeChange";
+import { sendWelcomeEmail } from "../../utils/sendWelcomeEmail";
+import { notify } from "../../utils/notify";
 
 export default function AuthModal({
   onClose,
@@ -121,10 +121,10 @@ export default function AuthModal({
           loading
             ? "PLEASE WAIT..."
             : mode === "login"
-              ? "LOG IN"
-              : mode === "signup"
-                ? "CREATE AN ACCOUNT"
-                : "SEND RESET LINK"
+            ? "LOG IN"
+            : mode === "signup"
+            ? "CREATE AN ACCOUNT"
+            : "SEND RESET LINK"
         }
         className="button button--auth"
       />
