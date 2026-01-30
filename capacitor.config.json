@@ -1,6 +1,6 @@
 {
-  "appId": "com.reflections.app",
-  "appName": "reflections",
+  "appId": "com.Reflections.app",
+  "appName": "Reflections",
   "webDir": "dist",
   "plugins": {
     "SplashScreen": {

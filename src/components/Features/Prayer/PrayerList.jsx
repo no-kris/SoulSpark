@@ -1,3 +1,4 @@
+import { formatDateForDisplay } from "../../../utils/formatDate";
 import PrayerActions from "./PrayerActions";
 
 export default function PrayerList({ prayers, prayerFilter }) {
@@ -27,7 +28,7 @@ export default function PrayerList({ prayers, prayerFilter }) {
             >
               <span className="prayer-item__testimony--title">Testimony</span>
               <span className="prayer-item__testimony--date">
-                {prayer.answerDate}
+                {formatDateForDisplay(prayer.answerDate)}
               </span>
             </div>
             <span className="prayer-item__testimony--note">

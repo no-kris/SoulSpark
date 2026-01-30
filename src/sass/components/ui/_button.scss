@@ -30,11 +30,13 @@
         color: $color-text-sub;
         font-weight: $font-weight-semibold;
         letter-spacing: 1px;
+        font-size: $font-size-lg;
     }
 
     &--tab-active {
         background-color: $color-emerald-600;
         color: $color-white;
+        font-size: $font-size-lg;
     }
 
     &--minimal {

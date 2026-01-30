@@ -37,7 +37,7 @@ export default function Badges({ userProfile, counts, answeredPrayersCount }) {
           ))}
         </div>
       ) : (
-        <p className="badge-desc">Start your journey to unlock milestones.</p>
+        <p className="badge-desc">No badges unlocked yet.</p>
       )}
 
       {/* Locked Badges */}
