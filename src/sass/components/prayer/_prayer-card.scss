@@ -32,7 +32,7 @@
 
   &__textarea {
     @include input-base($color-amber-500);
-    min-height: 8rem;
+    min-height: 12rem;
     resize: none;
   }
 }

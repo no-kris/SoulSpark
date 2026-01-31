@@ -651,7 +651,7 @@ a {
   border-color: #f5f5f4;
 }
 .prayer-card__textarea {
-  min-height: 8rem;
+  min-height: 12rem;
   resize: none;
 }
 
