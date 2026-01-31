@@ -588,6 +588,11 @@ a {
   align-items: center;
   margin-bottom: 1rem;
 }
+.prayer-card__title {
+  font-size: 2rem;
+  color: #292524;
+  font-weight: 700;
+}
 .prayer-card__subtitle {
   color: #78716c;
   font-size: 1.25rem;

@@ -19,6 +19,12 @@
     margin-bottom: 1rem;
   }
 
+  &__title {
+    font-size: $font-size-2xl;
+    color: $color-stone-800;
+    font-weight: 700;
+  }
+
   &__subtitle {
     color: $color-text-sub;
     font-size: $font-size-lg;

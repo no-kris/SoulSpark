@@ -55,7 +55,7 @@ export default function GratitudeCard() {
   return (
     <div className="gratitude-card">
       <div className="gratitude-card__header">
-        <div className="gratitude-card__title">Nourish Your Spirit</div>
+        <div className="gratitude-card__title">Give Thanks</div>
         <div className="gratitude-card__subtitle">
           Add three things to thank God for
         </div>
