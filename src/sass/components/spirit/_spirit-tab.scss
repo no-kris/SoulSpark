@@ -1,18 +1,13 @@
 @use "../../abstracts/variables" as *;
 @use "../../abstracts/fonts" as *;
+@use "../../abstracts/mixins" as *;
 
 .spirit-container {
-  padding: 2rem;
+  @include card-base;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
-  max-width: 90%;
-  margin: 0 auto;
-  background: rgba($color-white, 0.5);
-  backdrop-filter: blur(10px);
-  border-radius: 1.5rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 
   &__header {
     text-align: center;

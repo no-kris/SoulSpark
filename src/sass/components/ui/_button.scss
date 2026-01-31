@@ -1,102 +1,93 @@
 @use "../../abstracts/variables" as *;
 @use "../../abstracts/fonts" as *;
+@use "../../abstracts/mixins" as *;
 
 .button {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s ease;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease; // Standardized to 0.2s
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 600; // Standardized font weight
+  border-radius: 1rem; // Standardized radius
 
-    &--auth {
-        gap: 0.5rem;
-        padding: 1rem 1.5rem;
-        border-radius: 1rem;
-        font-size: $font-size-lg;
-        font-weight: $font-weight-base;
-        color: $color-white;
-        background-color: $color-emerald-600;
-    }
+  &--auth {
+    @include button-base($color-emerald-600, white);
+    padding: 1rem 1.5rem;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-base;
+  }
 
-    &--settings {
-        padding: 1rem 1.5rem;
-        border-radius: 1rem;
-        background-color: $color-stone-800;
-        color: $color-white;
-    }
+  &--settings {
+    @include button-base($color-stone-800, white);
+    padding: 1rem 1.5rem;
+  }
 
-    &--tab {
-        padding: 1rem 2rem;
-        border-radius: 1rem;
-        color: $color-text-sub;
-        font-weight: $font-weight-semibold;
-        letter-spacing: 1px;
-        font-size: $font-size-lg;
-    }
+  &--tab {
+    padding: 1rem 2rem;
+    background: transparent;
+    color: $color-text-sub;
+    font-weight: $font-weight-semibold;
+    letter-spacing: 1px;
+    font-size: $font-size-lg;
+  }
 
-    &--tab-active {
-        background-color: $color-emerald-600;
-        color: $color-white;
-        font-size: $font-size-lg;
-    }
+  &--tab-active {
+    background-color: $color-emerald-600;
+    color: $color-white;
+    font-size: $font-size-lg;
+  }
 
-    &--minimal {
-        gap: 0.5rem;
-        padding: 0.5rem 1rem;
-        border-radius: 2rem;
-        color: $color-white;
-        font-weight: $font-weight-semibold;
-    }
+  &--minimal {
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem; // Kept distinctive pill shape
+    color: $color-white;
+    font-weight: $font-weight-semibold;
+  }
 
-    &--text {
-        color: $color-amber-700;
-        font-size: 0.9rem;
-    }
+  &--text {
+    color: $color-amber-700;
+    font-size: 0.9rem;
+    background: transparent;
+    padding: 0.5rem;
+  }
 
-    &--close {
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        z-index: 10;
-        padding: 0.5rem;
-        border-radius: 50%;
-        color: $color-stone-500;
-        transition: all 0.2s;
-        background-color: transparent;
-    }
+  &--close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+    padding: 0.5rem;
+    border-radius: 50%;
+    color: $color-stone-500;
+    transition: all 0.2s;
+    background-color: transparent;
+  }
 
-    &--save {
-        padding: 1.5rem;
-        font-size: $font-size-2xl;
-        border-radius: 1.5rem;
-        background: white;
-        color: $color-emerald-700;
-        border: 1px solid $color-emerald-700;
-    }
+  &--save {
+    @include button-base(white, $color-emerald-700);
+    padding: 1.5rem;
+    font-size: $font-size-2xl;
+    border: 1px solid $color-emerald-700;
+  }
 
-    &--submit {
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: center;
-        align-items: center;
-        padding: 1.5rem;
-        gap: 0.5rem;
-        font-size: $font-size-2xl;
-        border-radius: 1.5rem;
-        background: $color-stone-800;
-        color: white;
-    }
+  &--submit {
+    @include button-base($color-stone-800, white);
+    padding: 1.5rem;
+    font-size: $font-size-2xl;
+    flex-direction: row-reverse;
+  }
 
-    &--cancel {
-        padding: 1.5rem 3rem;
-        border-radius: 1.5rem;
-        background: $color-stone-200;
-        color: $color-stone-800;
-    }
+  &--cancel {
+    @include button-base($color-stone-200, $color-stone-800);
+    padding: 1.5rem 3rem;
+  }
 
-    &--danger {
-        padding: 1.5rem 3rem;
-        border-radius: 1.5rem;
-        background: $color-danger-100;
-        color: $color-danger-600;
-    }
+  &--danger {
+    @include button-base($color-danger-100, $color-danger-600);
+    padding: 1.5rem 3rem;
+  }
 }

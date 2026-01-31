@@ -5,12 +5,16 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  background: linear-gradient(to right, rgb(245, 158, 11), rgb(217, 119, 6));
+  background: linear-gradient(
+    135deg,
+    $color-amber-500,
+    $color-amber-600
+  ); // Use variables, cleaner gradient angle
   max-width: 90%;
   margin: 2rem auto 0;
   padding: 0 2rem;
-  border-radius: 2rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+  border-radius: 1.2rem; // Consistent radius
+  box-shadow: 0 4px 6px -1px rgba($color-amber-600, 0.2); // Colored shadow but softer
   position: relative;
 
   &__content {

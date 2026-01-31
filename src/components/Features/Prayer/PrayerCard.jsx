@@ -40,10 +40,8 @@ export default function PrayerCard() {
   return (
     <div className="prayer-card">
       <div className="prayer-card__header">
-        <div className="prayer-card__icon">
-          <Plus size={18} />
-        </div>
         <h3 className="prayer-card__title">New Prayer</h3>
+        <div className="prayer-card__subtitle">Cast your prayers to Him</div>
       </div>
       {errorMessage && <div className="auth-modal__error">{errorMessage}</div>}
       <input

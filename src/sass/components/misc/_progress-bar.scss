@@ -29,18 +29,18 @@
 
 .progress-fill {
   width: 100%;
-  height: 1rem;
+  height: 1.2rem; // Thicker as requested
   background-color: $color-stone-200;
-  border-radius: 5px;
+  border-radius: 1rem; // Pill shape
   overflow: hidden;
   position: relative;
 
   &__value {
     height: 100%;
-    background: linear-gradient(90deg, $color-amber-500, $color-amber-600);
-    border-radius: 5px;
-    transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-    box-shadow: 0 0 10px rgba($color-amber-500, 0.3);
+    background: $color-amber-500; // Flat or subtle gradient
+    border-radius: 1rem;
+    transition: width 0.5s ease-out; // No bounce
+    // No shadow
 
     text-indent: -9999px;
   }

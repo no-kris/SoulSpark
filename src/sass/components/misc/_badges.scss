@@ -35,12 +35,11 @@
   align-items: center;
   text-align: center;
   padding: 1.5rem 1rem;
-  background: rgba($color-white, 0.6);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba($color-stone-200, 0.5);
+  background: white;
+  border: 1px solid $color-stone-200;
   border-radius: 1.25rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 
   &.unlocked {
     background: linear-gradient(

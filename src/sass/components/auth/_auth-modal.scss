@@ -1,5 +1,6 @@
 @use "../../abstracts/variables" as *;
 @use "../../abstracts/fonts" as *;
+@use "../../abstracts/mixins" as *;
 @use "sass:color";
 
 .auth-modal {
@@ -60,36 +61,12 @@
     margin-top: 1rem;
 
     &--input {
-      width: 100%;
-      padding: 1rem 1.25rem;
-      border: 1px solid transparent; // Hidden border initally
-      border-radius: 1rem;
-      font-size: 1.6rem;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      background-color: $color-stone-50;
-      color: $color-stone-800;
-      font-weight: 500;
+      @include input-base($color-emerald-500);
 
       // Ensure text doesn't overlap with password toggle
       &[type="password"],
       &[type="text"] {
         padding-right: 3rem;
-      }
-
-      &:focus {
-        background-color: white;
-        border-color: rgba($color-emerald-500, 0.3);
-        box-shadow:
-          0 4px 12px rgba(0, 0, 0, 0.05),
-          0 0 0 4px rgba($color-emerald-500, 0.1);
-        transform: translateY(-1px);
-        outline: none;
-      }
-
-      &::placeholder {
-        color: $color-stone-500;
-        font-weight: 400;
-        font-size: 1.6rem;
       }
     }
   }

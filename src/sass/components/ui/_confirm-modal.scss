@@ -18,9 +18,12 @@
 
   &__actions {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem; // Closer together
     justify-content: center;
     align-items: center;
-    padding-top: 1rem;
+    padding-top: 2rem; // More breathing room
+    margin-top: 1rem;
+    border-top: 1px solid $color-stone-100; // Separation line
+    width: 100%;
   }
 }
