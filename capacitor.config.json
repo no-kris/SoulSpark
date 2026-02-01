@@ -1,5 +1,5 @@
 {
-  "appId": "com.Reflections.app",
+  "appId": "com.kristreska.reflections",
   "appName": "Reflections",
   "webDir": "dist",
   "plugins": {

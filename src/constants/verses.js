@@ -46,7 +46,7 @@ const VERSES = [
     ref: "Philippians 4:7",
   },
   {
-    text: '"Let the peace of Christ rule in your hearts, since as memebers of one body you were called to peace. And be thankful."',
+    text: '"Let the peace of Christ rule in your hearts, since as members of one body you were called to peace. And be thankful."',
     ref: "Colossians 3:15",
   },
   {
